@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="https://codehs.com/uploads/874a3f0402f63c983bcbf5a43a182493">
+  <title>BNAOS 7 | tiny7_dist_2017_professional_cd-rom.iso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Base theme (7.css by default, swapped dynamically in JS) -->
+  <link id="theme-css" rel="stylesheet" href="https://unpkg.com/7.css/dist/7.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/en/face/pixel-operator" type="text/css"/>
+</head>
+<body>
+  <!-- Desktop area -->
+  <div id="desktop" tabindex="0" aria-label="Desktop">
+</div>
+  
+  <div id="drag-box"></div>
+
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <button id="start-btn" class="button" title="Click here for applications!">Start</button>
+    <div id="task-buttons"></div>
+    <div id="clock"></div>
+  </div>
+
+  <!-- Start menu -->
+  <div id="start-menu">
+    <div class="banner">BNAOS</div>
+    <div class="menu-items">
+        <button data-launch="notepad" title="Type whatever you like!">Notepad</button>
+        <button data-launch="about" title="Learn about this desktop!">About BNAOS</button>
+        <button data-launch="chrome" title="Browse the modern web!">BNAium Browser</button>
+        <button data-launch="jspaint" title="Paint whatever you like!">MS Paint</button>
+        <button data-launch="winamp" title="Listen to awesome music!">WinAmp</button>
+    </div>
+  </div>
+
+  <!-- Context menu -->
+  <ul id="context-menu" class="menu" role="menu">
+    <li role="menuitem" data-action="new" title="Create a new document!">New</li>
+<li role="menuitem" data-action="refresh" title="Refresh for better performance!">Refresh</li>
+    <li role="menuitem" data-action="properties" title="Customize your desktop experience!">Properties</li>
+  </ul>
+
+  <script src="os.js" defer></script>
+  <script src="third-parties/v86.bundle.min.mjs" BNA86-tagWith="fetchISOReader()"></script>
+</body>
+</html>
