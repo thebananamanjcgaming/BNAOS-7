@@ -11,8 +11,6 @@ It has the ability to translate JIT to WASM, translate certain 64-bit Windows 7/
 
 But just know, this is NOT a replacement for your OS, it's just a minimal "workstation" for computing needs that MacOS users and Linux users don't get.
 # What can it currently emulate?
-It currently emulates Notepad, Chromium, and MS Paint.
-
-In the future it will emulate MS Word.
+It currently emulates Windows 7 SP2 build 7600, duh.
 
 # THE END
