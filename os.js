@@ -48,43 +48,60 @@ const Apps = {
         <p>It supports up to 10-core usage for emulation and fully simulates the Windows UI.</p>
         <h3>Version</h3>
         <p>(emulated) Microsoft Windows 7 SP2</p>
-        <p>(simulated) BNAOS Version 5.0.72 Iteration 2</p>
+        <p>(simulated) BNAOS Version Release 5.2.72 Iteration 1 (Aero Glass)</p>
       </div>
     `,
     width: 300,
     height: 200
   },
 
-properties: { title: 'Desktop Properties', content: () => ` <div class="field-row-stacked"> <label>Wallpaper:</label> <select id="wallpaper-select"> <option value="default" class="options">Default</option> <option value="beach" class="options">Beach</option> <option value="mountains" class="options">Mountains</option> <option value="solid" class="options">Solid Color</option> </select> </div> <div class="field-row-stacked"> <label>Theme:</label> <select id="theme-select"> <option value="7">Windows 7 (7.css)</option> <option value="classic">Classic (98.css)</option> <option value="light">Light</option> <option value="dark">Dark</option> </select> </div> <div class="field-row" style="margin-top:1em; justify-content:flex-end;"> <button class="button primary" id="apply-properties">Apply</button> <button class="button">Cancel</button> </div> `, width: 350, height: 220 },
+properties: { title: 'Desktop Properties', content: () => ` <div class="field-row-stacked"> <label>Wallpaper:</label> <select id="wallpaper-select"> <option value="default" class="options">Default</option> <option value="harmony" class="options">Harmony</option> <option value="mountains" class="options">Mountains</option> <option value="solid" class="options">Solid Color</option> </select> </div> <div class="field-row-stacked"> <label>Theme:</label> <select id="theme-select"> <option value="7">Windows 7 (7.css)</option> <option value="classic">Classic (98.css)</option> <option value="light">Light</option> <option value="dark">Dark</option> </select> </div> <div class="field-row" style="margin-top:1em; justify-content:flex-end;"> <button class="button primary" id="apply-properties">Apply</button> <button class="button">Cancel</button> </div> `, width: 350, height: 220 },
 chrome: {
   title: 'Google Chrome',
   content: () => `
-    <div class="chrome-window">
-      <div class="chrome-topbar">
+<div class="chrome-window">
+    <div class="chrome-topbar">
         <div class="chrome-tabs">
-          <div class="tab active">
-            <span class="tab-title">New Tab</span>
-            <button class="tab-close">×</button>
-          </div>
-          <div class="tab new-tab">+</div>
+            <div class="tab active">
+                <span class="tab-title">New Tab</span>
+                <button class="tab-close">×</button>
+            </div>
+            <div class="tab new-tab">+</div>
         </div>
-        <div class="chrome-controls">
-          <button class="control-btn">–</button>
-          <button class="control-btn">□</button>
-          <button class="control-btn">×</button>
-        </div>
-      </div>
-      <div class="chrome-toolbar">
-        <button class="nav-btn">←</button>
-        <button class="nav-btn">→</button>
-        <button class="nav-btn">⟳</button>
-        <input type="text" class="address-bar" value="https://www.google.com/webhp?igu=1">
-        <button class="nav-btn">★</button>
-      </div>
-      <div class="chrome-content">
-        <iframe src="https://www.google.com/webhp?igu=1" frameborder="0"></iframe>
-      </div>
     </div>
+    <div class="chrome-toolbar">
+        <button class="nav-btn" onclick="goBack()">←</button>
+        <button class="nav-btn" onclick="goForward()">→</button>
+        <button class="nav-btn" onclick="reloadPage()">⟳</button>
+        <input type="text" class="address-bar" id="urlInput" value="https://www.google.com/">
+        <button class="nav-btn" onclick="navigate()">Go</button>
+        <button class="nav-btn">★</button>
+    </div>
+    <div class="chrome-content">
+        <iframe id="browserFrame" src="" frameborder="0"></iframe>
+    </div>
+</div>
+
+<script>
+    function navigate() {
+        const url = document.getElementById('urlInput').value;
+        const encodedUrl = encodeURIComponent(url);
+        document.getElementById('browserFrame').src = \`data:text/html,<html><body><script>fetch('https://your-local-proxy-server/?url=\${encodedUrl}').then(response => response.text()).then(data => document.write(data));</script></body></html>\`;
+    }
+
+    function goBack() {
+        // Implement back navigation logic
+    }
+
+    function goForward() {
+        // Implement forward navigation logic
+    }
+
+    function reloadPage() {
+        const currentUrl = document.getElementById('urlInput').value;
+        navigate(currentUrl);
+    }
+</script>
   `,
   width: 900,
   height: 600
@@ -470,10 +487,43 @@ jspaint: {
   className: 'no-controls'
 },
 winamp: {
-  title: 'WinAmp (broken)',
-  content: () => `
-    <div id="webamp-container" style="width:100%; height:100%;"></div>
-  `,
+  title: 'WinAmp',
+  content: () => `<head><script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script></head><div style="width:40px; height:40px; position:absolute; bottom:0px; left:0px;">
+	<div id="winamp-container"></div>
+    <script>
+const Winamp = window.Webamp;
+// All configuration options are optional.
+const webamp = new Webamp({
+    // Optional.
+    initialTracks: [
+        {
+            metaData: {
+                artist: "Artist",
+                title: "Title",
+            },
+            url: "URL TO SONG .mp3",
+        }, {
+            metaData: {
+                artist: "Artist",
+                title: "Title",
+            },
+            url: "URL TO SONG .mp3",
+        },
+        {
+            metaData: {
+                artist: "Artist",
+                title: "Title",
+            },
+            url: "URL TO SONG .mp3",
+        },
+      ],
+    initialSkin: {
+        url: "URL TO SKIN .WSZ"
+    },
+});
+webamp.renderWhenReady(document.getElementById('winamp-container'));
+</script>
+</div>`,
   width: 200,
   height: 400,
   className: 'no-controls'
@@ -518,6 +568,479 @@ saveas: {
   width: 500,
   height: 320,
   className: 'no-controls'
+},
+word: {
+  title: 'Word',
+  content: () => `
+    <style>
+      /* Root and typography */
+      .w7-word {
+        display: grid;
+        grid-template-rows: auto auto auto 1fr auto;
+        height: 100%;
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+        color: #1f2a44;
+        letter-spacing: 0.1px;
+      }
+
+      /* Top chrome: orb, QAT, tabs (Win7 ribbon cap height) */
+      .w7-top {
+        position: relative;
+        height: 36px;
+        background: linear-gradient(#2f6db3, #274f87);
+        border-bottom: 1px solid #1f3f6f;
+      }
+      .w7-orb {
+        position: absolute; left: 6px; top: 4px;
+        width: 28px; height: 28px; border-radius: 50%;
+        background: radial-gradient(circle at 30% 28%, #8dc0ff 0%, #5a98df 45%, #2b579a 70%, #234a86 100%);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.25), 0 1px 2px rgba(0,0,0,0.35);
+        display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 12px;
+        cursor: pointer;
+      }
+      .w7-qat {
+        position: absolute; left: 44px; top: 6px;
+        display: flex; gap: 6px;
+      }
+      .w7-qat button {
+        width: 22px; height: 22px; line-height: 0;
+        background: linear-gradient(#fefefe, #f1f3f8);
+        border: 1px solid #c5cbd7; border-radius: 2px;
+        box-shadow: inset 0 0 0 1px #fff;
+        cursor: pointer;
+      }
+      .w7-tabs {
+        position: absolute; left: 8px; right: 8px; bottom: 0;
+        height: 26px; display: flex; gap: 2px; align-items: end;
+      }
+      .w7-tab {
+        border: 1px solid transparent; border-bottom: none;
+        color: #eaf2ff; padding: 5px 12px 5px;
+        border-radius: 4px 4px 0 0; cursor: pointer; font-size: 13px;
+      }
+      .w7-tab.active {
+        background: #ffffff;
+        color: #1f2940;
+        border-color: #bfc7d3;
+      }
+
+      /* Ribbon body */
+      .w7-ribbon {
+        background: linear-gradient(#f7f8fc, #eef2f9);
+        border-top: 1px solid #c7cede;
+        border-bottom: 1px solid #c7cede;
+        display: flex; gap: 14px; padding: 8px 10px 12px;
+      }
+      .w7-group {
+        position: relative; background: #fff;
+        border: 1px solid #d7dce7; border-radius: 3px;
+        padding: 6px 8px 18px; min-width: 170px;
+        display: grid; align-content: start; row-gap: 6px;
+      }
+      .w7-group .label {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        bottom: -10px; padding: 0 6px; font-size: 10px; color: #5b6678; background: #eef2f9;
+      }
+      .w7-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+      .w7-icon, .w7-btn, .w7-drop {
+        background: linear-gradient(#fff, #f1f4fa);
+        border: 1px solid #cfd6e2; border-radius: 2px;
+        padding: 4px 6px; font-size: 12px; cursor: pointer;
+      }
+      .w7-icon { width: 26px; height: 26px; display: grid; place-items: center; padding: 0; }
+      .w7-drop::after { content: " ▼"; font-size: 10px; color: #556; }
+      .w7-icon:hover, .w7-btn:hover, .w7-drop:hover { background: #fff; }
+      .w7-icon:active, .w7-btn:active, .w7-drop:active { background: #e9edf7; box-shadow: inset 0 0 0 1px #d0d7e4; }
+
+      /* Dialog box launcher */
+      .w7-launch {
+        position: absolute; right: 4px; bottom: 2px; width: 14px; height: 14px;
+        display: grid; place-items: center; color: #6b7384; cursor: pointer;
+      }
+      .w7-launch::before {
+        content: "▾"; font-size: 12px; transform: rotate(-45deg);
+      }
+
+      /* Styles gallery */
+      .w7-styles {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+      }
+      .w7-style {
+        border: 1px solid #cfd6e2; background: linear-gradient(#fff, #f5f7fb);
+        padding: 6px; font-size: 11px; text-align: center; cursor: pointer;
+      }
+
+      /* Backstage (orb menu) */
+      .w7-backstage {
+        position: absolute; inset: 36px 0 auto 0; height: 280px; display: none;
+      }
+      .w7-backstage.open { display: grid; grid-template-columns: 220px 1fr; }
+      .w7-bs-left {
+        background: #2b579a; color: #fff; padding: 12px; display: grid; gap: 6px;
+      }
+      .w7-bs-left .item {
+        padding: 8px 10px; border-radius: 3px; cursor: pointer;
+      }
+      .w7-bs-left .item:hover { background: rgba(255,255,255,0.12); }
+      .w7-bs-right {
+        background: #f6f8fc; border-bottom: 1px solid #c7cede; padding: 16px;
+      }
+
+      /* Document chrome */
+      .w7-docwrap { display: grid; grid-template-rows: 24px 1fr; background: #d7d7d7; }
+      .w7-ruler {
+        height: 24px; background: linear-gradient(#f6f6f6, #ececec);
+        border-bottom: 1px solid #c8c8c8; display: grid; align-items: center;
+        padding: 0 30px; font-size: 10px; color: #666; letter-spacing: 2px;
+      }
+      .w7-scroll { overflow: auto; padding: 24px 0; }
+
+      /* Page and zoom */
+      .w7-page {
+        background: #fff; width: 816px; /* 8.5in at 96dpi ≈ 816px */
+        min-height: 1056px; /* 11in at 96dpi */
+        margin: 0 auto; padding: 96px; /* 1in margins */
+        box-shadow: 0 0 6px rgba(0,0,0,0.28); outline: none;
+        transform-origin: top center;
+      }
+
+      /* Status bar */
+      .w7-status {
+        height: 26px; background: linear-gradient(#f3f3f3, #e9e9e9);
+        border-top: 1px solid #c8c8c8; display: flex; align-items: center; justify-content: space-between;
+        padding: 0 10px; font-size: 12px; color: #444;
+      }
+      .w7-status .seg { display: flex; align-items: center; gap: 12px; }
+      .w7-div { width: 1px; height: 14px; background: #bdbdbd; }
+      .w7-zoom { display: flex; align-items: center; gap: 6px; }
+      .w7-zoom input[type="range"] { width: 160px; }
+
+      /* Tooltips (enhanced) */
+      .w7-tip {
+        position: fixed; z-index: 99999; pointer-events: none; display: none;
+        background: #ffffe1; border: 1px solid #c9c993; border-radius: 2px;
+        padding: 6px 8px; font-size: 12px; color: #222; box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+      }
+
+      /* Custom scrollbars (scoped) */
+      .w7-scroll::-webkit-scrollbar { width: 10px; }
+      .w7-scroll::-webkit-scrollbar-track { background: lightgray; }
+      .w7-scroll::-webkit-scrollbar-thumb {
+        background:
+          linear-gradient(to bottom, #dbe6f1, #a8b8c8),
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent calc(33% - 6px),
+            #666 calc(33% - 6px),
+            #666 calc(33% - 4px),
+            transparent calc(33% - 4px),
+            transparent calc(66% - 2px),
+            #666 calc(66% - 2px),
+            #666 calc(66%),
+            transparent calc(66%),
+            transparent calc(100% - 2px),
+            #666 calc(100% - 2px),
+            #666 100%
+          );
+        background-blend-mode: multiply; border: 1px solid #888; box-shadow: inset 0 0 1px #666;
+      }
+
+      /* Selection visuals feel */
+      .w7-page *::selection { background: rgba(153, 191, 255, 0.6); }
+      .w7-page { -webkit-user-select: text; user-select: text; }
+    </style>
+
+    <div class="w7-word" data-zoom="100">
+      <!-- Top (orb, QAT, tabs) -->
+      <div class="w7-top">
+        <div class="w7-orb" data-tip="File (Alt+F)">W</div>
+        <div class="w7-qat">
+          <button data-cmd="save" data-tip="Save (Ctrl+S)">💾</button>
+          <button data-cmd="undo" data-tip="Undo (Ctrl+Z)">↶</button>
+          <button data-cmd="redo" data-tip="Redo (Ctrl+Y)">↷</button>
+        </div>
+        <div class="w7-tabs">
+          <div class="w7-tab" data-tab="insert">Insert</div>
+          <div class="w7-tab" data-tab="layout">Page Layout</div>
+          <div class="w7-tab" data-tab="references">References</div>
+          <div class="w7-tab" data-tab="mailings">Mailings</div>
+          <div class="w7-tab" data-tab="review">Review</div>
+          <div class="w7-tab" data-tab="view">View</div>
+        </div>
+        <div class="w7-backstage" id="w7Backstage">
+          <div class="w7-bs-left">
+            <div class="item">Save</div>
+            <div class="item">Save As</div>
+            <div class="item">Open</div>
+            <div class="item">Close</div>
+            <div class="item">Options</div>
+          </div>
+          <div class="w7-bs-right">
+            <h3 style="margin:0 0 8px;">Info</h3>
+            <p style="margin:0;">This is a mock Backstage area for the Word‑like app.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ribbon (Home tab content shown) -->
+      <div class="w7-ribbon" id="w7Ribbon">
+        <!-- Font -->
+        <div class="w7-group">
+          <div class="w7-row">
+            <button class="w7-drop" id="fontFamily">Calibri</button>
+            <button class="w7-drop" id="fontSize">11</button>
+          </div>
+          <div class="w7-row">
+            <button class="w7-icon" data-exec="bold" data-tip="Bold (Ctrl+B)"><b>B</b></button>
+            <button class="w7-icon" data-exec="italic" data-tip="Italic (Ctrl+I)"><i>I</i></button>
+            <button class="w7-icon" data-exec="underline" data-tip="Underline (Ctrl+U)"><u>U</u></button>
+            <button class="w7-icon" data-exec="strikethrough" data-tip="Strikethrough"><s>S</s></button>
+          </div>
+          <div class="w7-row">
+            <button class="w7-btn" data-execv="foreColor:#2b579a" data-tip="Font Color">A</button>
+            <button class="w7-btn" data-execv="hiliteColor:#fff59d" data-tip="Text Highlight">▇</button>
+          </div>
+          <div class="w7-launch" data-tip="Font dialog"></div>
+          <div class="label">Font</div>
+        </div>
+
+        <!-- Paragraph -->
+        <div class="w7-group">
+          <div class="w7-row">
+            <button class="w7-icon" data-exec="insertUnorderedList" data-tip="Bullets">•</button>
+            <button class="w7-icon" data-exec="insertOrderedList" data-tip="Numbering">1.</button>
+            <button class="w7-icon" data-exec="outdent" data-tip="Decrease Indent">⇤</button>
+            <button class="w7-icon" data-exec="indent" data-tip="Increase Indent">⇥</button>
+          </div>
+          <div class="w7-row">
+            <button class="w7-icon" data-execv="justify:left" data-tip="Align Left">≡</button>
+            <button class="w7-icon" data-execv="justify:center" data-tip="Center">≡</button>
+            <button class="w7-icon" data-execv="justify:right" data-tip="Align Right">≡</button>
+            <button class="w7-icon" data-execv="justify:full" data-tip="Justify">≡</button>
+          </div>
+          <div class="w7-launch" data-tip="Paragraph dialog"></div>
+          <div class="label">Paragraph</div>
+        </div>
+
+        <!-- Styles -->
+        <div class="w7-group" style="min-width:220px;">
+          <div class="w7-styles">
+            <div class="w7-style" data-style="normal">Normal</div>
+            <div class="w7-style" data-style="strong"><b>Strong</b></div>
+            <div class="w7-style" data-style="emphasis"><i>Emphasis</i></div>
+            <div class="w7-style" data-style="u"><u>Underline</u></div>
+            <div class="w7-style" data-style="h1">Heading 1</div>
+            <div class="w7-style" data-style="h2">Heading 2</div>
+          </div>
+          <div class="label">Styles</div>
+        </div>
+      </div>
+
+      <!-- Document area (ruler + scroll with page) -->
+      <div class="w7-docwrap">
+        <div class="w7-ruler">0   1   2   3   4   5   6   7   8</div>
+        <div class="w7-scroll">
+          <div class="w7-page" id="w7Page" contenteditable="true">Start typing here...</div>
+        </div>
+      </div>
+
+      <!-- Status bar -->
+      <div class="w7-status">
+        <div class="seg">
+          <span id="w7PageInfo">Page 1 of 1</span>
+          <div class="w7-div"></div>
+          <span id="w7Words">Words: 0</span>
+          <div class="w7-div"></div>
+          <span>English (United States)</span>
+        </div>
+        <div class="seg w7-zoom">
+          <span>Zoom</span>
+          <input id="w7Zoom" type="range" min="50" max="200" value="100" />
+          <span id="w7ZoomLabel">100%</span>
+        </div>
+      </div>
+
+      <!-- Tooltip -->
+      <div class="w7-tip" id="w7Tip"></div>
+    </div>
+
+    <script>
+      (() => {
+        const root = document.currentScript.closest('.window, .w7-word')?.querySelector('.w7-word') || document.querySelector('.w7-word');
+        const page = root.querySelector('#w7Page');
+        const tip = root.querySelector('#w7Tip');
+        const backstage = root.querySelector('#w7Backstage');
+        const zoomInput = root.querySelector('#w7Zoom');
+        const zoomLabel = root.querySelector('#w7ZoomLabel');
+        const wordsLbl = root.querySelector('#w7Words');
+
+        /* Backstage toggle (orb) */
+        root.querySelector('.w7-orb').addEventListener('click', () => {
+          backstage.classList.toggle('open');
+        });
+
+        /* Tabs visual (single-tab demo) */
+        root.querySelectorAll('.w7-tab').forEach(tab => {
+          tab.addEventListener('click', () => {
+            root.querySelectorAll('.w7-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            // For a full app, swap ribbon contents here based on data-tab
+          });
+        });
+
+        /* Tooltip behavior */
+        const tipTargets = root.querySelectorAll('[data-tip]');
+        tipTargets.forEach(el => {
+          el.addEventListener('mouseenter', e => {
+            tip.textContent = el.getAttribute('data-tip');
+            tip.style.display = 'block';
+          });
+          el.addEventListener('mousemove', e => {
+            tip.style.left = (e.clientX + 12) + 'px';
+            tip.style.top = (e.clientY + 16) + 'px';
+          });
+          el.addEventListener('mouseleave', () => tip.style.display = 'none');
+        });
+
+        /* Formatting with execCommand (simple, nostalgic) */
+        function exec(cmd, val) {
+          document.execCommand(cmd, false, val || null);
+          page.focus();
+        }
+        root.querySelectorAll('[data-exec]').forEach(b => b.addEventListener('click', () => exec(b.dataset.exec)));
+        root.querySelectorAll('[data-execv]').forEach(b => {
+          b.addEventListener('click', () => {
+            const [k, v] = b.dataset.execv.split(':');
+            if (k === 'justify') exec('justify' + v[0].toUpperCase() + v.slice(1));
+            else exec(k, v);
+          });
+        });
+
+        /* Font family/size dropdowns (mock quick sets) */
+        root.querySelector('#fontFamily').addEventListener('click', () => {
+          const next = { 'Calibri':'Times New Roman', 'Times New Roman':'Arial', 'Arial':'Calibri' };
+          const btn = root.querySelector('#fontFamily');
+          btn.textContent = next[btn.textContent] || 'Calibri';
+          exec('fontName', btn.textContent);
+        });
+        root.querySelector('#fontSize').addEventListener('click', () => {
+          const next = { '11':'12', '12':'14', '14':'16', '16':'11' };
+          const btn = root.querySelector('#fontSize');
+          btn.textContent = next[btn.textContent] || '12';
+          exec('fontSize', { '11':'3','12':'3','14':'4','16':'5' }[btn.textContent] || '3');
+        });
+
+        /* Styles gallery quick‑apply */
+        root.querySelectorAll('.w7-style').forEach(s => s.addEventListener('click', () => {
+          const st = s.dataset.style;
+          if (st === 'normal') { exec('removeFormat'); return; }
+          if (st === 'strong') { exec('bold'); return; }
+          if (st === 'emphasis') { exec('italic'); return; }
+          if (st === 'u') { exec('underline'); return; }
+          if (st === 'h1') { exec('formatBlock', '<h1>'); return; }
+          if (st === 'h2') { exec('formatBlock', '<h2>'); return; }
+        }));
+
+        /* Zoom (true page scaling, like decompiled binaries) */
+        function setZoom(v) {
+          page.style.transform = 'scale(' + (v/100) + ')';
+          root.dataset.zoom = v;
+          zoomLabel.textContent = v + '%';
+        }
+        zoomInput.addEventListener('input', e => setZoom(e.target.value));
+        setZoom(100);
+
+        /* Word count (status bar) */
+        function countWords(txt) {
+          const s = txt.replace(/<[^>]+>/g,' ').replace(/&nbsp;/g,' ').trim();
+          if (!s) return 0;
+          return s.split(/\\s+/).length;
+        }
+        function updateWords() {
+          wordsLbl.textContent = 'Words: ' + countWords(page.innerHTML);
+        }
+        page.addEventListener('input', updateWords);
+        updateWords();
+
+        /* Keyboard shortcuts (nostalgic) */
+        root.addEventListener('keydown', e => {
+          if (e.ctrlKey) {
+            if (e.key.toLowerCase() === 'b') { exec('bold'); e.preventDefault(); }
+            if (e.key.toLowerCase() === 'i') { exec('italic'); e.preventDefault(); }
+            if (e.key.toLowerCase() === 'u') { exec('underline'); e.preventDefault(); }
+            if (e.key.toLowerCase() === 'z') { exec('undo'); e.preventDefault(); }
+            if (e.key.toLowerCase() === 'y') { exec('redo'); e.preventDefault(); }
+            if (e.key.toLowerCase() === 's') { /* mock save */ e.preventDefault(); }
+          }
+          if (e.altKey && (e.key === 'f' || e.key === 'F')) { backstage.classList.toggle('open'); e.preventDefault(); }
+        });
+
+        /* Dialog launchers (mock) */
+        root.querySelectorAll('.w7-launch').forEach(ln => {
+          ln.addEventListener('click', () => {
+            alert('This would open the classic dialog (mock).');
+          });
+        });
+
+        /* Focus the page for immediate typing */
+        setTimeout(() => page.focus(), 50);
+      })();
+    </script>
+  `,
+  width: 700,
+  height: 500
+},
+cmd: {
+    title: 'Administrator:C:\\Windows\\system32\\cmd.exe',
+    content: () => '<style>body { background-color: black; border: none; }</style> <iframe id="kernel32" src="system32/cmd.html" style="width: 100vw; height: 100vh; border: none;"></iframe>',
+  width: 700,
+  height: 500
+},
+license: {
+  title: 'Windows Activation',
+  content: () => `
+    <div style="font-family: 'Segoe UI', Tahoma, sans-serif; padding: 20px; text-shadow: none; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
+      
+      <h2 style="color: #1a4fa3; margin-top: 0; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">Type your product key</h2>
+      
+      <p style="font-size: 14px; font-weight: lighter; color: #000; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
+        The Windows 7 Professional product key can be found on the installation disc holder inside the Windows package. 
+        Activation will register the product key to this computer.
+      </p>
+
+      <p style="margin-top: 20px; font-size: 14px; color: #000; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
+        The product key looks like this:
+      </p>
+
+      <p style="font-weight: bold; font-size: 16px; margin: 10px 0; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
+        PRODUCT KEY: XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+      </p>
+
+      <a href="#" style="font-size: 13px; color: #1a4fa3; text-decoration: underline; display: block; margin-bottom: 20px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">
+        Where do I find my Windows product key?
+      </a>
+
+      <label for="prod-key" style="font-size: 14px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;"><style="font-size: 14px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;"u>P</u>roduct Key:</label><br>
+      <input 
+        id="prod-key" 
+        type="text" 
+        style="width: 60%; font-size: 14px; padding: 6px; margin-top: 5px; margin-bottom: 20px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_select.cur'), text !important;"
+      >
+
+      <div style="border-top: 1px solid #ccc; padding-top: 10px; display: flex; justify-content: flex-end; gap: 10px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
+        <button style="font-size: 14px; padding: 5px 15px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">Next</button>
+        <button style="font-size: 14px; padding: 5px 15px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">Cancel</button>
+      </div>
+
+      <div style="margin-top: 30px; font-size: 13px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
+        <a href="#" style="color: #1a4fa3; text-decoration: underline; display: block; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">What is activation?</a>
+        <a href="#" style="color: #1a4fa3; text-decoration: underline; display: block; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">Read the privacy statement online</a>
+      </div>
+    </div>
+  `,
+  width: 700,
+  height: 500
 }
 };
 
@@ -535,7 +1058,17 @@ const dragBox = document.getElementById('drag-box'); // ← add this line
 // =====================
 // Drag box logic
 // =====================
+const browserShortcut = document.getElementById('browser-shortcut');
+
 let dragStartX = 0, dragStartY = 0;
+
+// -----------------
+// Single click select / deselect
+// -----------------
+browserShortcut.addEventListener('click', e => {
+  e.stopPropagation(); // prevent desktop click from firing
+  browserShortcut.classList.add('selected');
+});
 
 desktop.addEventListener('mousedown', e => {
   if (e.button !== 0 || e.target.closest('.window')) return;
@@ -551,6 +1084,9 @@ desktop.addEventListener('mousedown', e => {
     display: 'block'
   });
 
+  // clear previous selection
+  browserShortcut.classList.remove('selected');
+
   function onMouseMove(e) {
     const x = Math.min(e.pageX, dragStartX);
     const y = Math.min(e.pageY, dragStartY);
@@ -563,6 +1099,23 @@ desktop.addEventListener('mousedown', e => {
       width: w + 'px',
       height: h + 'px'
     });
+
+    // Check overlap with browser shortcut
+    const boxRect = dragBox.getBoundingClientRect();
+    const iconRect = browserShortcut.getBoundingClientRect();
+
+    const overlaps = !(
+      boxRect.right < iconRect.left ||
+      boxRect.left > iconRect.right ||
+      boxRect.bottom < iconRect.top ||
+      boxRect.top > iconRect.bottom
+    );
+
+    if (overlaps) {
+      browserShortcut.classList.add('selected');
+    } else {
+      browserShortcut.classList.remove('selected');
+    }
   }
 
   function onMouseUp() {
@@ -574,6 +1127,7 @@ desktop.addEventListener('mousedown', e => {
   document.addEventListener('mousemove', onMouseMove);
   document.addEventListener('mouseup', onMouseUp);
 });
+
 
 let zTop = 10;
 const windows = new Map();
@@ -653,16 +1207,16 @@ const body = win.querySelector('.window-body');
       body.classList.add('no-scrollbars');
     }
   
-if (key === 'winamp') {
-  const container = win.querySelector('#webamp-container');
-  const script = document.createElement('script');
-  script.src = "third-parties/webamp.bundle.min.mjs";
-  script.onload = () => {
-    const webamp = new Webamp();
-    webamp.renderWhenReady(container);
-  };
-  document.body.appendChild(script);
-}
+// if (key === 'winamp') {
+//   const container = win.querySelector('#webamp-container');
+//   const script = document.createElement('script');
+//   script.src = "third-parties/webamp.bundle.min.mjs";
+//   script.onload = () => {
+//     const webamp = new Webamp();
+//     webamp.renderWhenReady(container);
+//   };
+//   document.body.appendChild(script);
+// }
   
 if (key === 'properties') {
   const applyBtn = win.querySelector('#apply-properties');
@@ -673,17 +1227,17 @@ if (key === 'properties') {
 
       // --- Wallpaper ---
       switch (wallpaper) {
-        case 'beach':
-          document.body.style.background = "url('https://picsum.photos/id/101/1920/1080') center/cover no-repeat";
+        case 'harmony':
+          document.body.style.background = "#004080 url('https://static.wikitide.net/windowswallpaperwiki/thumb/0/0c/Img0_%28Windows_7_Starter%29.jpg/1280px-Img0_%28Windows_7_Starter%29.jpg') center/cover no-repeat";
           break;
         case 'mountains':
-          document.body.style.background = "url('https://picsum.photos/id/1003/1920/1080') center/cover no-repeat";
+          document.body.style.background = "#004080 url('https://static.wikitide.net/windowswallpaperwiki/thumb/2/2f/Img9_%28Windows_7%29.jpg/1280px-Img9_%28Windows_7%29.jpg') center/cover no-repeat";
           break;
         case 'solid':
           document.body.style.background = "#004080";
           break;
         default:
-          document.body.style.background = "#008080 url('https://picsum.photos/seed/wall/1920/1080') center/cover no-repeat";
+          document.body.style.background = "#004080 url('https://static.wikitide.net/windowswallpaperwiki/thumb/5/50/Img0_%28Windows_7%29.jpg/1280px-Img0_%28Windows_7%29.jpg') center/cover no-repeat";
       }
 
       // --- Theme ---
@@ -731,11 +1285,28 @@ function toggleMaximize(el) {
   }
 }
 
+const taskBtnSelector = ".task-button";
+
 function closeWindow(id) {
-  const w = windows.get(id); if (!w) return;
+  const w = windows.get(id);
+  if (!w) return;
+
+  // Add the 'closing' class to trigger the animation
   w.el.classList.add('closing');
+  
+  // Ensure taskBtn is a reference to the actual DOM element
+  const taskBtn = document.querySelector(taskBtnSelector);
+  if (taskBtn) {
+    // Trigger the shrinking animation on the task button
+    taskBtn.classList.add('shrinking');
+  }
+
   w.el.addEventListener('animationend', () => {
-    w.el.remove(); w.taskBtn.remove(); windows.delete(id);
+    w.el.remove();
+    if (taskBtn) {
+      taskBtn.remove();
+    }
+    windows.delete(id);
   }, { once: true });
 }
 window.closeWindow = closeWindow;
@@ -837,6 +1408,50 @@ startMenu.addEventListener('click', e => {
 // =====================
 let menuOpen = false;
 
+function reloadAllImages() {
+  const allElements = document.querySelectorAll('img, body');
+  const originalSources = new Map();
+
+  // Store original sources and backgrounds
+  allElements.forEach(element => {
+    if (element.tagName === 'IMG') {
+      const src = element.src;
+      if (src) {
+        originalSources.set(element, src);
+      }
+    } else if (element.tagName === 'BODY' && element.style.backgroundImage) {
+      const bgImage = element.style.backgroundImage;
+      originalSources.set(element, bgImage);
+    }
+  });
+
+  // Temporarily clear images to "nothing"
+  allElements.forEach(element => {
+    if (element.tagName === 'IMG') {
+      // Use a tiny 1x1 transparent pixel to prevent browser errors with empty src
+      element.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+    } else if (element.tagName === 'BODY' && originalSources.has(element)) {
+      element.style.backgroundImage = 'none';
+    }
+  });
+
+  // Wait 0.05 seconds (50 milliseconds) and reload images
+  setTimeout(() => {
+    originalSources.forEach((originalSource, element) => {
+      if (element.tagName === 'IMG') {
+        const url = originalSource.split('?')[0];
+        element.src = `${url}?t=${new Date().getTime()}`;
+      } else if (element.tagName === 'BODY') {
+        const urlMatch = /url\("?(.+?)"?\)/.exec(originalSource);
+        if (urlMatch) {
+          const url = urlMatch[1].split('?')[0];
+          element.style.backgroundImage = `url("${url}?t=${new Date().getTime()}")`;
+        }
+      }
+    });
+  }, 100);
+}
+
 desktop.addEventListener('contextmenu', e => {
   e.preventDefault();
   positionMenu(e);
@@ -859,7 +1474,7 @@ contextMenu.addEventListener('click', e => {
 
   switch (item.dataset.action) {
     case 'new': openApp('notepad'); break;
-    case 'refresh': location.reload(); break;
+    case 'refresh': reloadAllImages(); break;
     case 'properties': openApp('properties'); break;
   }
 });
@@ -877,10 +1492,13 @@ function positionMenu(e) {
 // Clock
 // =====================
 function tick() {
-  clockEl.textContent = new Date().toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit'
-  });
+    const now = new Date();
+    const timeString = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+    const dateString = now.toLocaleDateString();
+    clockEl.innerHTML = `${timeString} <br> ${dateString}`;
 }
 tick();
 setInterval(tick, 60000); // update every minute

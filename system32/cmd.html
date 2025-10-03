@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator:C:\Windows\system32\cmd.exe</title>
+    <link href="https://fonts.cdnfonts.com/css/sf-pixelate" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/lucida-console" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Lucida Console','Courier New', Verdana, Courier, monospace;
+            padding: 20px;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-image: none !important;
+            user-select: text !important;
+        }
+        
+        body::selection {
+            background-color: white;
+            color: black;
+        }
+        
+        #console {
+            white-space: pre;
+            overflow-y: auto;
+        }
+        .input-line {
+            display: flex;
+            align-items: center;
+        }
+        .prompt {
+            margin-right: 5px;
+        }
+        input {
+            background-color: black;
+            color: white;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-family: 'Lucida Console','Courier New', Verdana, Courier, monospace;
+            font-size: 16px;
+            padding: 5px;
+            cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="console"></div>
+    <div class="input-line">
+        <h1 style="font-size: 16px; font-weight: lighter;">C:\Users\DEMO></h1><input type="text" id="input" autocomplete="off" autofocus />
+    </div>
+
+    <script src="../os.js"></script>
+
+    <script>
+        const consoleDiv = document.getElementById('console');
+        const inputField = document.getElementById('input');
+        const promptText = 'C:\\Users\\DEMO> ';
+        let fakeFileSystem = [];
+
+        function appendToConsole(text) {
+            consoleDiv.innerHTML += text + '<br>';
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+
+        function handleCommand(command) {
+            const [cmd, ...args] = command.toLowerCase().split(' ');
+            switch (cmd) {
+                case 'help':
+                    appendToConsole('Available commands: help, clear, echo [text], mkdir [directory], ping [address], start <app name>');
+                    break;
+                case 'clear':
+                    consoleDiv.innerHTML = '';
+                    break;
+                case 'mkdir':
+                    const dirName = args[0];
+                    if (dirName) {
+                        if (!fakeFileSystem.includes(dirName)) {
+                            fakeFileSystem.push(dirName);
+                            appendToConsole(`Directory "${dirName}" created.`);
+                        } else {
+                            appendToConsole(`Directory "${dirName}" already exists.`);
+                        }
+                    } else {
+                        appendToConsole(`Usage: mkdir [directory]`);
+                    }
+                    break;
+                case 'ping':
+                    const pingTarget = args[0];
+                    if (pingTarget) {
+                        fetch(`https://${pingTarget}`)
+                            .then(response => {
+                                if (response.ok) {
+                                    appendToConsole(`Pinging ${pingTarget} with 32 bytes of data:`);
+                                    appendToConsole(`Reply from ${pingTarget}: bytes=32 time=10ms TTL=64`);
+                                    appendToConsole(`Reply from ${pingTarget}: bytes=32 time=10ms TTL=64`);
+                                    appendToConsole(`Ping statistics for ${pingTarget}:`);
+                                    appendToConsole(`    Packets: Sent = 2, Received = 2, Lost = 0 (0% loss)`);
+                                } else {
+                                    appendToConsole(`Request failed for ${pingTarget}`);
+                                }
+                            })
+                            .catch(error => {
+                                appendToConsole(`Error pinging ${pingTarget}: ${error}`);
+                            });
+                    } else {
+                        appendToConsole(`Usage: ping [address]`);
+                    }
+                    break;
+                case 'start':
+                    const appName = args.join(' ');
+                    if (appName) {
+                        appendToConsole(`Starting ${appName}...`);
+                        const button = document.createElement('button');
+                        button.setAttribute('data-launch', appName);
+                        document.body.appendChild(button);
+                        button.click();
+                    } else {
+                        appendToConsole(`Error: No app name provided.`);
+                    }
+                    break;
+                default:
+                    if (cmd === 'echo') {
+                        appendToConsole(`${args.join(' ')}`);
+                    } else {
+                        appendToConsole(`'${command}' is not recognized as an internal or external command.`);
+                    }
+            }
+        }
+
+        inputField.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const command = inputField.value;
+                appendToConsole(`C:\\Users\\DEMO> ${command}`);
+                handleCommand(command);
+                inputField.value = '';
+            }
+        });
+
+        // Initial prompt
+        appendToConsole('Microsoft Windows [Version 6.1.7601]');
+        appendToConsole('Copyright (c) 2009 Microsoft Corporation. All rights reserved.');
+        appendToConsole('');
+    </script>
+</body>
+</html>
