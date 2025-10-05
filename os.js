@@ -59,50 +59,190 @@ properties: { title: 'Desktop Properties', content: () => ` <div class="field-ro
 chrome: {
   title: 'Google Chrome',
   content: () => `
+<!-- Material UI & Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@5.15.14/dist/material.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@mui/material@5.15.14/umd/material-ui.production.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+  .chrome-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fafafa;
+    font-family: "Roboto", "Segoe UI", sans-serif;
+    overflow: hidden;
+  }
+
+  .chrome-topbar {
+    display: flex;
+    align-items: center;
+    background: #e0e0e0;
+    height: 36px;
+    padding: 0 8px;
+    box-shadow: inset 0 -1px #ccc;
+  }
+
+  .chrome-tabs {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    overflow-x: auto;
+  }
+
+  .tab {
+    background: #f5f5f5;
+    border-radius: 6px 6px 0 0;
+    padding: 4px 12px;
+    margin-right: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .tab.active {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-bottom: none;
+  }
+
+  .tab .tab-close {
+    margin-left: 6px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .chrome-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f9f9f9;
+    padding: 6px 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .nav-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+  }
+
+  .nav-btn:hover {
+    color: #000;
+  }
+
+  .address-bar {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .chrome-content {
+    flex: 1;
+    background: white;
+    overflow: hidden;
+  }
+
+  #browserFrame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
+
 <div class="chrome-window">
-    <div class="chrome-topbar">
-        <div class="chrome-tabs">
-            <div class="tab active">
-                <span class="tab-title">New Tab</span>
-                <button class="tab-close">×</button>
-            </div>
-            <div class="tab new-tab">+</div>
-        </div>
+  <!-- Tabs -->
+  <div class="chrome-topbar">
+    <div class="chrome-tabs" id="chromeTabs">
+      <div class="tab active">
+        <span class="tab-title" draggable="false">New Tab</span>
+        <button class="tab-close">×</button>
+      </div>
+      <div class="tab new-tab" id="newTab">+</div>
     </div>
-    <div class="chrome-toolbar">
-        <button class="nav-btn" onclick="goBack()">←</button>
-        <button class="nav-btn" onclick="goForward()">→</button>
-        <button class="nav-btn" onclick="reloadPage()">⟳</button>
-        <input type="text" class="address-bar" id="urlInput" value="https://www.google.com/">
-        <button class="nav-btn" onclick="navigate()">Go</button>
-        <button class="nav-btn">★</button>
-    </div>
-    <div class="chrome-content">
-        <iframe id="browserFrame" src="" frameborder="0"></iframe>
-    </div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="chrome-toolbar">
+    <button class="nav-btn" onclick="goBack()"><span class="material-icons">arrow_back</span></button>
+    <button class="nav-btn" onclick="goForward()"><span class="material-icons">arrow_forward</span></button>
+    <button class="nav-btn" onclick="reloadPage()"><span class="material-icons">refresh</span></button>
+    <input type="text" class="address-bar" id="urlInput" draggable="false" style="-webkit-user-drag: none; /* For WebKit browsers */
+  user-drag: none; /* Standard property, limited support */
+  -webkit-user-select: none; /* Prevent text selection within the element */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For older Edge/IE */" value="https://www.google.com/" placeholder="Enter a URL...">
+    <button class="nav-btn" onclick="navigate()"><span class="material-icons">arrow_right_alt</span></button>
+    <button class="nav-btn"><span class="material-icons">star_border</span></button>
+  </div>
+
+  <!-- Web content -->
+  <div class="chrome-content">
+    <iframe id="browserFrame" src="https://goog2010.neocities.org/web" frameborder="0"></iframe>
+  </div>
 </div>
 
 <script>
-    function navigate() {
-        const url = document.getElementById('urlInput').value;
-        const encodedUrl = encodeURIComponent(url);
-        document.getElementById('browserFrame').src = \`data:text/html,<html><body><script>fetch('https://your-local-proxy-server/?url=\${encodedUrl}').then(response => response.text()).then(data => document.write(data));</script></body></html>\`;
-    }
+  const iframe = document.getElementById('browserFrame');
+  const urlInput = document.getElementById('urlInput');
 
-    function goBack() {
-        // Implement back navigation logic
-    }
+  function safeUrl(u) {
+    if (!/^https?:\/\\//i.test(u)) return 'https://' + u;
+    return u;
+  }
 
-    function goForward() {
-        // Implement forward navigation logic
-    }
+  function navigate() {
+    const url = safeUrl(urlInput.value.trim());
+    iframe.src = url;
+  }
 
-    function reloadPage() {
-        const currentUrl = document.getElementById('urlInput').value;
-        navigate(currentUrl);
+  function goBack() {
+    try { iframe.contentWindow.history.back(); } catch {}
+  }
+
+  function goForward() {
+    try { iframe.contentWindow.history.forward(); } catch {}
+  }
+
+  function reloadPage() {
+    document.getElementById('iframeid').src += '';
+  }
+  btn.onclick = reload;
+
+  // Tab creation (visual only)
+  const tabBar = document.getElementById('chromeTabs');
+  document.getElementById('newTab').addEventListener('click', () => {
+    const newTab = document.createElement('div');
+    newTab.classList.add('tab', 'active');
+    newTab.innerHTML = '<span class="tab-title">New Tab</span><button class="tab-close">×</button>';
+    tabBar.insertBefore(newTab, document.getElementById('newTab'));
+    setActiveTab(newTab);
+  });
+
+  function setActiveTab(tab) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  }
+
+  tabBar.addEventListener('click', (e) => {
+    const tab = e.target.closest('.tab');
+    if (!tab) return;
+    if (e.target.classList.contains('tab-close')) {
+      tab.remove();
+      return;
     }
+    setActiveTab(tab);
+  });
 </script>
-  `,
+`,
   width: 900,
   height: 600
 },
@@ -1027,6 +1167,45 @@ license: {
         type="text" 
         style="width: 60%; font-size: 14px; padding: 6px; margin-top: 5px; margin-bottom: 20px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_select.cur'), text !important;"
       >
+      
+      <script>document.addEventListener('DOMContentLoaded', () => {
+  // 1. Get the specific input element by its ID
+  const specificInput = document.getElementById('prod-key');
+
+  // Check if the element exists to prevent errors
+  if (specificInput) {
+    // 2. Add an event listener for input changes
+    specificInput.addEventListener('input', () => {
+      const parentContainer = specificInput.parentNode;
+      const existingBalloon = parentContainer.querySelector('.red-text-balloon');
+
+      // Remove any previously created balloon div
+      if (existingBalloon) {
+        existingBalloon.remove();
+      }
+
+      // Check if the input value is not empty
+      if (specificInput.value.trim() !== '') {
+        // 3. Create the new div element
+        const balloonDiv = document.createElement('div');
+        balloonDiv.textContent = 'Please check your product key and try again';
+        
+        // 4. Set the role attribute and a class for styling
+        balloonDiv.setAttribute('role', 'balloon');
+        balloonDiv.classList.add('red-text-balloon');
+
+        // 5. Auto-generate CSS for red text using JavaScript
+        // This is done directly on the element's style property
+        balloonDiv.style.color = 'red';
+        balloonDiv.style.marginTop = '8px'; // Add some space below the input
+
+        // 6. Insert the new div after the input element
+        specificInput.insertAdjacentElement('afterend', balloonDiv);
+      }
+    });
+  }
+});
+</script>
 
       <div style="border-top: 1px solid #ccc; padding-top: 10px; display: flex; justify-content: flex-end; gap: 10px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
         <button style="font-size: 14px; padding: 5px 15px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">Next</button>
