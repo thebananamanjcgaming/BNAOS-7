@@ -1157,7 +1157,7 @@ license: {
         PRODUCT KEY: XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
       </p>
 
-      <a href="#" style="font-size: 13px; color: #1a4fa3; text-decoration: underline; display: block; margin-bottom: 20px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">
+      <a href="#productkey" style="font-size: 13px; color: #1a4fa3; text-decoration: underline; display: block; margin-bottom: 20px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">
         Where do I find my Windows product key?
       </a>
 
@@ -1165,47 +1165,32 @@ license: {
       <input 
         id="prod-key" 
         type="text" 
-        style="width: 60%; font-size: 14px; padding: 6px; margin-top: 5px; margin-bottom: 20px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_select.cur'), text !important;"
+        style="width: 60%; font-size: 14px; padding: 6px; margin-top: 5px; margin-bottom: 20px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_select.cur'), text !important;" maxlength="29"
       >
       
-      <script>document.addEventListener('DOMContentLoaded', () => {
-  // 1. Get the specific input element by its ID
-  const specificInput = document.getElementById('prod-key');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('prod-key').addEventListener('input', function (e) {
+        let formattedValue = '';
+        const value = e.target.value.replace(/-/g, ''); // Remove existing dashes
 
-  // Check if the element exists to prevent errors
-  if (specificInput) {
-    // 2. Add an event listener for input changes
-    specificInput.addEventListener('input', () => {
-      const parentContainer = specificInput.parentNode;
-      const existingBalloon = parentContainer.querySelector('.red-text-balloon');
+        for (let i = 0; i < value.length; i++) {
+            formattedValue += value[i];
+            if ((i + 1) % 5 === 0 && (i + 1) < value.length) { // Add dash every 5 digits, but not after the last digit
+                formattedValue += '-';
+            }
+        }
 
-      // Remove any previously created balloon div
-      if (existingBalloon) {
-        existingBalloon.remove();
-      }
+        // Truncate if the formatted value exceeds the effective max length (25 digits + 4 dashes)
+        if (formattedValue.length > 29) {
+            formattedValue = formattedValue.substring(0, 29);
+        }
 
-      // Check if the input value is not empty
-      if (specificInput.value.trim() !== '') {
-        // 3. Create the new div element
-        const balloonDiv = document.createElement('div');
-        balloonDiv.textContent = 'Please check your product key and try again';
-        
-        // 4. Set the role attribute and a class for styling
-        balloonDiv.setAttribute('role', 'balloon');
-        balloonDiv.classList.add('red-text-balloon');
-
-        // 5. Auto-generate CSS for red text using JavaScript
-        // This is done directly on the element's style property
-        balloonDiv.style.color = 'red';
-        balloonDiv.style.marginTop = '8px'; // Add some space below the input
-
-        // 6. Insert the new div after the input element
-        specificInput.insertAdjacentElement('afterend', balloonDiv);
-      }
+        e.target.value = formattedValue;
     });
-  }
 });
 </script>
+
 
       <div style="border-top: 1px solid #ccc; padding-top: 10px; display: flex; justify-content: flex-end; gap: 10px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
         <button style="font-size: 14px; padding: 5px 15px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">Next</button>
@@ -1213,8 +1198,9 @@ license: {
       </div>
 
       <div style="margin-top: 30px; font-size: 13px; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">
-        <a href="#" style="color: #1a4fa3; text-decoration: underline; display: block; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">What is activation?</a>
-        <a href="#" style="color: #1a4fa3; text-decoration: underline; display: block; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">Read the privacy statement online</a>
+        <a href="#activation" style="color: #1a4fa3; text-decoration: underline; display: block; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">What is activation?</a>
+        <a href="#privacy" style="color: #1a4fa3; text-decoration: underline; display: block; cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_link.cur'), pointer !important;">Read the privacy statement online</a>
+        <p style="cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;"><i style="cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">Note from BNAOS: You <b style="cursor: url('https://archive.org/download/windows7_cursors/aero-cursors/aero_arrow.cur'), default !important;">MUST</b> have a license to utilize professional features. If you don't activate, you have unlimited time of use for normal features, but you won't be able to do certain things normally. Also, when you submit your product key, you must add dashes every five characters or it won't work. Email <a href="mailto:thebananamanjc@gmail.com">thebananamanjc@gmail.com</a> on GMail for product key information. For a free trial, enter this product key: 12345-67890-trial-today-test1.</i></p>
       </div>
     </div>
   `,
@@ -1232,7 +1218,7 @@ const startBtn = document.getElementById('start-btn');
 const startMenu = document.getElementById('start-menu');
 const clockEl = document.getElementById('clock');
 const contextMenu = document.getElementById('context-menu');
-const dragBox = document.getElementById('drag-box'); // ← add this line
+const dragBox = document.getElementById('drag-box');
 
 // =====================
 // Drag box logic
@@ -1421,13 +1407,19 @@ if (key === 'properties') {
 
       // --- Theme ---
       const themeLink = document.getElementById('theme-css');
+      const startBtnImg = document.getElementById('start-btn-img');
+      const startBtnText = document.getElementById('start-btn-text');
       if (themeLink) {
         if (theme === 'classic') {
           themeLink.href = "https://unpkg.com/98.css/dist/98.css";
           document.body.classList.add('classic-theme');
+          startBtnImg.classList.add('classic-theme');
+          startBtnText.classList.add('classic-theme');
         } else {
           themeLink.href = "https://unpkg.com/7.css/dist/7.css";
           document.body.classList.remove('classic-theme');
+          startBtnImg.classList.remove('classic-theme');
+          startBtnText.classList.remove('classic-theme');
         }
       }
     };
@@ -1490,6 +1482,7 @@ function closeWindow(id) {
 }
 window.closeWindow = closeWindow;
 
+
 function makeDraggable(win) {
   const bar = win.querySelector('.title-bar');
   let sx, sy, sl, st;
@@ -1547,8 +1540,10 @@ document.addEventListener('click', e => {
 // Start menu
 // =====================
 function toggleStart(open) {
-  const isVisible = startMenu.style.display === 'flex';
-  const show = open ?? !isVisible;
+  // Use computed style to determine visibility (covers CSS and inline cases)
+  const computedDisplay = window.getComputedStyle(startMenu).display;
+  const isVisible = computedDisplay !== 'none';
+  const show = (open !== undefined) ? open : !isVisible; // explicit check for undefined
 
   if (show && !isVisible) {
     startMenu.style.display = 'flex';
@@ -1562,13 +1557,28 @@ function toggleStart(open) {
     startMenu.classList.add('closing');
     startMenu.addEventListener('animationend', () => {
       startMenu.classList.remove('closing');
+      // hide via inline style so computedStyle checks work consistently
       startMenu.style.display = 'none';
     }, { once: true });
   }
 }
 
-// Finish Start button wiring
-startBtn.onclick = () => toggleStart();
+// Replace the previous .onclick assignment with a safer listener that toggles.
+// Prevent default (anchor) and stop propagation so other global handlers don't immediately hide it.
+startBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  toggleStart(); // toggle behaviour (no forced true) — click opens/closes
+});
+
+// Close Start menu when clicking outside of it (and not on the start button)
+document.addEventListener('click', (e) => {
+  if (!startMenu.contains(e.target) && e.target !== startBtn && window.getComputedStyle(startMenu).display !== 'none') {
+    toggleStart(false);
+  }
+});
+
+// keep previous key handler for Escape
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') toggleStart(false);
 });
@@ -1631,7 +1641,7 @@ function reloadAllImages() {
   }, 100);
 }
 
-desktop.addEventListener('contextmenu', e => {
+document.addEventListener('contextmenu', e => {
   e.preventDefault();
   positionMenu(e);
   contextMenu.classList.add('show');
@@ -1673,12 +1683,38 @@ function positionMenu(e) {
 function tick() {
     const now = new Date();
     const timeString = now.toLocaleTimeString([], {
-        hour: '2-digit',
+        hour: 'numeric',
         minute: '2-digit'
     });
     const dateString = now.toLocaleDateString();
-    clockEl.innerHTML = `${timeString} <br> ${dateString}`;
+    clockEl.innerHTML = `${timeString} <br>${dateString}`;
+    displayBatteryPercentage();
 }
+
+function displayBatteryPercentage() {
+    navigator.getBattery().then(function(battery) {
+        const batteryIconContainer = document.createElement('div'); // New div for battery icon
+        const batteryIcon = document.createElement('span');
+        batteryIcon.innerHTML = `<img id="battery-icon" style="width: 10px; height: 17px;" src="https://codehs.com/uploads/9239bc8660a18815599203767be82326">`;
+        batteryIcon.title = `${Math.round(battery.level * 100)}% battery percentage`;
+        
+        const timeAndDateContainer = document.createElement('div');
+        timeAndDateContainer.style.display = 'flex';
+        timeAndDateContainer.style.alignItems = 'center';
+        timeAndDateContainer.style.flexDirection = 'row'; // Align to the left
+        
+        const timeAndDateContent = document.createElement('div');
+        timeAndDateContent.innerHTML = `${clockEl.innerHTML}`;
+        
+        batteryIconContainer.appendChild(batteryIcon); // Append battery icon to its own container
+        timeAndDateContainer.appendChild(batteryIconContainer); // Append battery icon container to timeAndDateContainer
+        timeAndDateContainer.appendChild(timeAndDateContent);
+        
+        clockEl.innerHTML = ''; // Clear previous content
+        clockEl.appendChild(timeAndDateContainer); // Append time and date container
+    });
+}
+
 tick();
 setInterval(tick, 60000); // update every minute
 openApp('welcome');

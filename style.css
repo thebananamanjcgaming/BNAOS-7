@@ -65,7 +65,13 @@ body {
   height: var(--taskbar-height);
   display: flex; align-items: center; gap: 8px;
   padding: 4px 6px;
-  background: rgba(240,240,240,.25);
+  background: linear-gradient(
+    180deg, 
+    rgba(224, 236, 246, 0.1) 0%, /* Lightest silver with blue tint and transparency */
+    rgba(176, 196, 222, 0.5) 40%, /* Medium silver-blue with transparency */
+    rgba(145, 163, 190, 0.5) 60%, /* Darker silver-blue with transparency */
+    rgba(168, 178, 196, 0.1) 100% /* Slightly lighter silver-blue at the bottom */
+  );
   border-top: 1px solid #000000;
   z-index: 9999;
   font-family: 'Pixel Operator', monospace;
@@ -108,15 +114,12 @@ body {
 .task-button { padding: 2px 10px;   font-family: 'Pixel Operator', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;   /* Box-shadow property */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: transform 0.3s ease; /* Smooth transition for shrinking */
-
-.shrinking {
-  transform: scale(0); /* Shrink to 0 size */
 }
-
 /* Start menu */
 #start-menu {
+  /* position inside the desktop so it can sit below the taskbar (artistic) */
   position: absolute;
   bottom: var(--taskbar-height);
   left: 6px;
@@ -124,6 +127,7 @@ body {
   display: none; flex-direction: row;
   border: 2px solid #404040;
   background: rgba(240, 240, 240, .25);
+  /* ensure this is below the taskbar (taskbar z-index is 9999) */
   z-index: 9998;
   overflow: hidden;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
@@ -136,6 +140,7 @@ body {
 
   /* For older WebKit browsers, include the vendor prefix */
   -webkit-backdrop-filter: blur(8px);
+  pointer-events: auto; /* ensure it receives clicks */
 }
 #start-menu.opening { display:flex; animation: start-slide-up 250ms ease-out forwards; }
 #start-menu.closing { animation: start-slide-down 250ms ease-in forwards; }
@@ -561,4 +566,44 @@ textarea {
 }
 #license-header-text:hover { 
     filter: brightness(80%);
+}
+
+#start-btn-img {
+    display: flex; 
+    justify-content: center; 
+    width: 42px; 
+    height: 42px;
+}
+
+#start-btn-img.classic-theme {
+    display: flex;
+    justify-content: start;
+    width: 28px; 
+    height: 28px;
+}
+
+#start-btn-text {
+    opacity: 0%;
+    visibility: hidden;
+    display: none;
+    color: white;
+    font-family: 'Pixel Operator';
+}
+
+#start-btn-text.classic-theme {
+    opacity: 100%;
+    visibility: visible;
+    justify-content: start;
+}
+
+#battery-icon {
+    filter: brightness(100%) !important;
+}
+
+#battery-icon {
+    filter: brightness(100%) !important;
+}
+
+.shrinking {
+  animation: fadeOut 0.2s forwards; /* Adjust duration as needed */
 }
