@@ -20,4 +20,6 @@ But just know, this is NOT a replacement for your OS, it's just a minimal "works
 # What can it currently emulate?
 It currently emulates Windows 7 SP2 build 7600, duh.
 
+<i>NOTE: OPENING VIA LOCALHOST OR VIA THE DEPLOYMENT(S) LISTED IS NOT AT ALL RECOMMENDED, AS SOME SIZING, COLORING, AND SCRIPTING ISSUES CAN OCCUR!</i>
+
 # THE END
