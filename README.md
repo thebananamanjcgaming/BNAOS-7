@@ -11,8 +11,7 @@ Before Aero Glass update (latest):
 
 After Aero Glass update (latest):
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6aa95bd4-ad79-4f75-b5ef-8633ee77e9a3" />
-
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/89aa22a0-ebf4-4a9b-87b0-c55b1c9694bb" />
 
 It has the ability to translate JIT to WASM, translate certain 64-bit Windows 7/98 binaries, and even more!
 
