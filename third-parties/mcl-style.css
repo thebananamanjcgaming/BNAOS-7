@@ -1,644 +1,644 @@
 /* General CSS */
 ::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
+    width: 0 !important;
+    background: transparent !important;
 }
 
 html {
-    display: block;
-    line-height: 1.5;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    overflow: hidden;
-    height: 100%;
+    display: block !important;
+    line-height: 1.5 !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    overflow: hidden !important;
+    height: 100% !important;
 }
 
 body {
-    position: relative;
-    display: flex;
-    color: white;
-    align-items: flex-start;
-    background-color: #303030;
-    margin: 0;
-    line-height: inherit;
-    overflow: hidden;
-    height: 100%;
+    position: relative !important;
+    display: flex !important;
+    color: white !important;
+    align-items: flex-start !important;
+    background-color: #303030 !important;
+    margin: 0 !important;
+    line-height: inherit !important;
+    overflow: hidden !important;
+    height: 100% !important;
     font-family: "Noto Sans", sans-serif !important;
-    --ui-main-lighter: #514d4c;
-    --ui-main-light: #353535;
-    --ui-main: #1e1e1e;
-    --ui-main-dark: #131313;
-    --text-secondary: #cccccc;
-    --ui-select: #008542;
+    --ui-main-lighter: #514d4c !important;
+    --ui-main-light: #353535 !important;
+    --ui-main: #1e1e1e !important;
+    --ui-main-dark: #131313 !important;
+    --text-secondary: #cccccc !important;
+    --ui-select: #008542 !important;
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 h1, h2, h3, h4, h5, h6, hr, p {
-    margin: 0;
+    margin: 0 !important;
 }
 
 hr {
-    border: 0.1vh solid var(--ui-main-light);
-    width: 74vw;
+    border: 0.1vh solid var(--ui-main-light) !important;
+    width: 74vw !important;
 }
 
 .bolded {
-    font-weight: 800;
+    font-weight: 800 !important;
 }
 
 /* Error CSS */
 
 .error {
-    display: none;
-    position: absolute;
-    right: 0;
-    z-index: 1;
-    padding: 0.5vw 1vw;
-    margin: 1vw 0.5vw;
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 1.5vw;
-    font-style: italic;
-    transition: 0.3s;
-    animation: drop .5s linear forwards;
-    font-size: 1.5vw;
+    display: none !important;
+    position: absolute !important;
+    right: 0 !important;
+    z-index: 1 !important;
+    padding: 0.5vw 1vw !important;
+    margin: 1vw 0.5vw !important;
+    background: rgba(0, 0, 0, 0.25) !important;
+    border-radius: 1.5vw !important;
+    font-style: italic !important;
+    transition: 0.3s !important;
+    animation: drop .5s linear forwards !important;
+    font-size: 1.5vw !important;
 }
 
 #naerror {
-    color: gold;
-    border: gold solid 0.1vw;
+    color: gold !important;
+    border: gold solid 0.1vw !important;
 }
 
 #screenerror {
-    right: 35%;
-    padding: 0.25vw 4vw;
-    color: darkred;
-    font-size: 1vw;
-    border: red solid 0.1vw;
+    right: 35% !important;
+    padding: 0.25vw 4vw !important;
+    color: darkred !important;
+    font-size: 1vw !important;
+    border: red solid 0.1vw !important;
 }
 
 .zoom-out {
-    animation: zoomed 0.2s linear forwards;
+    animation: zoomed 0.2s linear forwards !important;
 }
 
 @keyframes zoomed {
     100% {
-        transform: translateY(10px) scale(0);
-        display: none;
+        transform: translateY(10px) scale(0) !important;
+        display: none !important;
     }
 }
 
 /* Sidebar CSS */
 
 .sidebar {
-    height: 100vh;
-    width: 16vw;
-    background-color: var(--ui-main);
+    height: 100vh !important;
+    width: 16vw !important;
+    background-color: var(--ui-main) !important;
 }
 
 .sidebarOptions {
-    display: flex;
-    height: 5vw;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1.5vw;
-    padding-left: 1.5vw;
-    font-size: 0.9vw;
-    line-height: 1.5vw;
-    transition: 0.3s;
+    display: flex !important;
+    height: 5vw !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 1.5vw !important;
+    padding-left: 1.5vw !important;
+    font-size: 0.9vw !important;
+    line-height: 1.5vw !important;
+    transition: 0.3s !important;
 }
 
 .sidebarOptions:hover {
-    cursor: default;
-    background-color: var(--ui-main-light);
+    cursor: default !important;
+    background-color: var(--ui-main-light) !important;
 }
 
 .sidebarOptions.sidebarBottom {
-    position: absolute;
+    position: absolute !important;
 }
 
 .sidebarOptions.selected {
-    font-weight: 700; 
-    border-left: 0.4vw solid var(--ui-select);
+    font-weight: 700 !important; 
+    border-left: 0.4vw solid var(--ui-select) !important;
 }
 
-#gtabs1 img {width: 3vw;}
-#gtabs2 img, #gtabs3 img, #gtabs4 img {width: 2.5vw;}
-#gtabs5 {bottom: 7.5vw; width: 14.5vw;}
-#gtabs6 {bottom: 2.5vw; width: 14.5vw;}
-#gtabs5 img, #gtabs6 img {width: 2vw;}
+#gtabs1 img {width: 3vw !important;}
+#gtabs2 img, #gtabs3 img, #gtabs4 img {width: 2.5vw !important;}
+#gtabs5 {bottom: 7.5vw !important; width: 14.5vw !important;}
+#gtabs6 {bottom: 2.5vw !important; width: 14.5vw !important;}
+#gtabs5 img, #gtabs6 img {width: 2vw !important;}
 
 .eaglercraftText {
-    font-size: 1.1vw;
+    font-size: 1.1vw !important;
 }
 
 .launcherVersion {
-    position: absolute;
-    bottom: 0.25vw;
-    left: 1.25vw;
-    right: 0;
-    z-index: 1;
-    font-size: 1.1vw;
-    color: var(--text-secondary);
-    width: fit-content;
+    position: absolute !important;
+    bottom: 0.25vw !important;
+    left: 1.25vw !important;
+    right: 0 !important;
+    z-index: 1 !important;
+    font-size: 1.1vw !important;
+    color: var(--text-secondary) !important;
+    width: fit-content !important;
 }
 
 /* Header CSS */
 
 .mainPage {
-    width: 84vw;
-    background-color: var(--ui-main);
+    width: 84vw !important;
+    background-color: var(--ui-main) !important;
 }
 
-.gameHeader {padding: 1.8vw 1.8vw 0;}
-.currentGame {font-size: 1.2vw;}
+.gameHeader {padding: 1.8vw 1.8vw 0 !important;}
+.currentGame {font-size: 1.2vw !important;}
 
 .gameTabs {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
 }
 
 .headerButtons {
-    padding: 0.6vw 1.1vw;
-    color: var(--text-secondary);
-    font-size: 0.95vw;
-    line-height: 1.7vw;
-    transition: 0.3s;
+    padding: 0.6vw 1.1vw !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.95vw !important;
+    line-height: 1.7vw !important;
+    transition: 0.3s !important;
 }
 
 .headerButtons:hover {
-    cursor: default;
+    cursor: default !important;
     color: white
 }
 
 .headerButtons.selected {
-    cursor: default;
-    color: white;
-    font-weight: 800;
-    border-bottom: var(--ui-select) solid 0.21vw;
+    cursor: default !important;
+    color: white !important;
+    font-weight: 800 !important;
+    border-bottom: var(--ui-select) solid 0.21vw !important;
 }
 
 /* Body CSS */
 
 #game-bg {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    display: flex;
-    width: 84vw;
-    height: 84vh;
-    justify-content: center;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    position: absolute !important;
+    display: flex !important;
+    width: 84vw !important;
+    height: 84vh !important;
+    justify-content: center !important;
 }
 
 #game-title {
-    width: 40vw;
-    height: 6.5vw;
-    margin-top: 6vw;
-    animation: drop .5s linear forwards;
+    width: 40vw !important;
+    height: 6.5vw !important;
+    margin-top: 6vw !important;
+    animation: drop .5s linear forwards !important;
 }
 
 #gameSelection {
-    position: absolute;
-    bottom: 0;
-    width: 84vw;
-    height: 4.5vw;
-    justify-content: space-around;
-    display: flex;
-    background-color: var(--ui-main);
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 84vw !important;
+    height: 4.5vw !important;
+    justify-content: space-around !important;
+    display: flex !important;
+    background-color: var(--ui-main) !important;
 }
 
 .dropdownSelector {
-    position: absolute;
-    left: 1vw;
-    display: flex;
-    height: 4.5vw;
-    width: 27vw;
-    align-items: center;
-    justify-content: space-around;
-    transition: 0.3s;
+    position: absolute !important;
+    left: 1vw !important;
+    display: flex !important;
+    height: 4.5vw !important;
+    width: 27vw !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    transition: 0.3s !important;
 }
 
 .dropdownSelector:hover {
-    cursor: default;
-    background-color: var(--ui-main-light);
+    cursor: default !important;
+    background-color: var(--ui-main-light) !important;
 }
 
 .centeredIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .dropdownIcon {
-    color: white;
-    width: 1.75vw;
+    color: white !important;
+    width: 1.75vw !important;
 }
 
 .playButton {
-    position: absolute;
-    left: 32vw;
-    bottom: 0.5vw;
-    display: flex;
-    align-items: center;
-    width: 21.5vw;
-    height: 5vw;
-    background-image: url(https://bna-launcher.vercel.app/assets/images/play.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: 0.1s;
+    position: absolute !important;
+    left: 32vw !important;
+    bottom: 0.5vw !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 21.5vw !important;
+    height: 5vw !important;
+    background-image: url(https://bna-launcher.vercel.app/assets/images/play.png) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    transition: 0.1s !important;
 }
 
 .playButton:hover {
-    cursor: default;
-    background-image: url(https://bna-launcher.vercel.app/assets/images/play-hover.png);
-    transform: scale(1.05);
+    cursor: default !important;
+    background-image: url(https://bna-launcher.vercel.app/assets/images/play-hover.png) !important;
+    transform: scale(1.05) !important;
 }
 
 .username {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 3vw;
-    font-size: 1.35vw;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 3vw !important;
+    font-size: 1.35vw !important;
 }
 
 @keyframes drop {
     0% {
-        transform: translateY(-300px) scaleY(0.9);
-        opacity: 0;
+        transform: translateY(-300px) scaleY(0.9) !important;
+        opacity: 0 !important;
     }
 
     5% {
-        opacity: .7;
+        opacity: .7 !important;
     }
 
     50% {
-        transform: translateY(0) scaleY(1);
-        opacity: 1;
+        transform: translateY(0) scaleY(1) !important;
+        opacity: 1 !important;
     }
 
     65% {
-        transform: translateY(-17px) scaleY(.9);
-        opacity: 1;
+        transform: translateY(-17px) scaleY(.9) !important;
+        opacity: 1 !important;
     }
 
     75% {
-        transform: translateY(-22px) scaleY(.9);
-        opacity: 1;
+        transform: translateY(-22px) scaleY(.9) !important;
+        opacity: 1 !important;
     }
 
     100% {
-        transform: translateY(0) scaleY(1);
-        opacity: 1;
+        transform: translateY(0) scaleY(1) !important;
+        opacity: 1 !important;
     }
 }
 
 /* Mods Menu CSS */
 
 #mods {
-    position: absolute;
-    display: none;
-    width: 84vw;
-    height: 91vh;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
+    position: absolute !important;
+    display: none !important;
+    width: 84vw !important;
+    height: 91vh !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow-y: scroll !important;
 }
 
 .modketplace-title {
-    margin: 4vh 0 1vh;
-    width: 58vw;
+    margin: 4vh 0 1vh !important;
+    width: 58vw !important;
 }
 
 .modssubtitle {
-    font-size: 1.6vw;
+    font-size: 1.6vw !important;
 }
 
 #modsbox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5vw 1.5vw;
-    padding: 4vh 0 7vh;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 5vw 1.5vw !important;
+    padding: 4vh 0 7vh !important;
 }
 
 .modoption {
-    display: flex;
-    flex-direction: column;
-    cursor: default;
-    width: 18vw;
-    border: 0.5vw solid var(--ui-main);
-    transition: 0.1s;
+    display: flex !important;
+    flex-direction: column !important;
+    cursor: default !important;
+    width: 18vw !important;
+    border: 0.5vw solid var(--ui-main) !important;
+    transition: 0.1s !important;
 }
 
 .modoption:hover {
-    scale: 1.05;
+    scale: 1.05 !important;
 }
 
 .modoption img {
-    border: 0.3vw solid #AA0000;
-    image-rendering: pixelated;
+    border: 0.3vw solid #AA0000 !important;
+    image-rendering: pixelated !important;
 }
 
 .modoption.selected img {
-    border: 0.3vw solid #00AA00;
+    border: 0.3vw solid #00AA00 !important;
 }
 
 .modoption:hover img {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 .moddetails {
-    background-color: var(--ui-main-lighter);
-    padding: 0.5vw;
-    height: -webkit-fill-available;
-    font-size: 1.3vw;
+    background-color: var(--ui-main-lighter) !important;
+    padding: 0.5vw !important;
+    height: -webkit-fill-available !important;
+    font-size: 1.3vw !important;
 }
 
 .modtitle {
-    font-size: 1.5vw;
+    font-size: 1.5vw !important;
 }
 
 .modauthor {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 
 /* FAQ Menu CSS */
 
 #faq {
-    position: absolute;
-    display: none;
-    width: 84vw;
-    height: 91vh;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--ui-main-dark);
-    overflow-y: scroll;
-    font-size: 1.3vw;
+    position: absolute !important;
+    display: none !important;
+    width: 84vw !important;
+    height: 91vh !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    background-color: var(--ui-main-dark) !important;
+    overflow-y: scroll !important;
+    font-size: 1.3vw !important;
 }
 
 .faqtitle {
-    font-size: 2.3vw;
-    padding-top: 3vh;
+    font-size: 2.3vw !important;
+    padding-top: 3vh !important;
 }
 
 #faqbox {
-    display: flex;
-    flex-direction: column;
-    padding: 5vh 11vw 7vh;
-    width: -webkit-fill-available;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 5vh 11vw 7vh !important;
+    width: -webkit-fill-available !important;
 }
 
 .faqoption {
-    margin-bottom: 3vh;
+    margin-bottom: 3vh !important;
 }
 
 .faqtext {
-    display: flex;
-    align-items: center;
-    gap: 2vw;
+    display: flex !important;
+    align-items: center !important;
+    gap: 2vw !important;
 }
 
 .faqsymbol {
-    font-size: 2vw;
+    font-size: 2vw !important;
 }
 
 /* Installations Menu CSS */
 
 #installations {
-    position: absolute;
-    display: none;
-    width: 84vw;
-    height: 91vh;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--ui-main-dark);
-    overflow-y: scroll;
+    position: absolute !important;
+    display: none !important;
+    width: 84vw !important;
+    height: 91vh !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    background-color: var(--ui-main-dark) !important;
+    overflow-y: scroll !important;
 }
 
 #installationsbox {
-    display: flex;
-    flex-direction: column;
-    padding: 5vh 0 7vh;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 5vh 0 7vh !important;
 }
 
 .installationOptions {
-    display: flex;
-    height: 9vh;
-    width: 74vw;
-    align-items: center;
-    font-size: 1.2vw;
+    display: flex !important;
+    height: 9vh !important;
+    width: 74vw !important;
+    align-items: center !important;
+    font-size: 1.2vw !important;
 }
 
 .installationOptions:hover, .installationBox:hover {
-    background-color: var(--ui-main-light);
+    background-color: var(--ui-main-light) !important;
 }
 
 .installationOption {
-    position: absolute;
-    left: 7vw;
-    display: flex;
-    gap: 2vw;
-    align-items: center;
-    cursor: default;
+    position: absolute !important;
+    left: 7vw !important;
+    display: flex !important;
+    gap: 2vw !important;
+    align-items: center !important;
+    cursor: default !important;
 }
 
 .installationBox {
-    width: 3.5vh;
-    height: 3.5vh;
-    appearance: none;
-    border: 0.3vw solid #0c6e3d;
-    pointer-events: none;
+    width: 3.5vh !important;
+    height: 3.5vh !important;
+    appearance: none !important;
+    border: 0.3vw solid #0c6e3d !important;
+    pointer-events: none !important;
 }
 
 .installationBox:checked {
-  background-color: var(--ui-select);
+  background-color: var(--ui-select) !important;
 }
 
 .installationBox:checked:hover {
-    background-color: #0f9a54;
+    background-color: #0f9a54 !important;
 }
 
 .installationOption img {
-    width: 5.5vh;
-    height: 5.5vh;
+    width: 5.5vh !important;
+    height: 5.5vh !important;
 }
 
 .installationOptionText {
-    display: grid;
-    align-items: center;
-    justify-content: flex-start;
+    display: grid !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
 }
 
 /* Patch Notes Menu CSS */
 
 #patchNotes {
-    position: absolute;
-    display: none;
-    width: 84vw;
-    height: 91vh;
-    flex-direction: column;
-    background-color: var(--ui-main-dark);
-    overflow-y: scroll;
+    position: absolute !important;
+    display: none !important;
+    width: 84vw !important;
+    height: 91vh !important;
+    flex-direction: column !important;
+    background-color: var(--ui-main-dark) !important;
+    overflow-y: scroll !important;
 }
 
 .patchnotes-title {
-    font-size: 1.4vw;
+    font-size: 1.4vw !important;
 }
 
 .versionscontainer {
-    display: flex;
-    align-items: center;
-    gap: 0.5vw;
-    margin: 0.5vh 0 1.5vh;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5vw !important;
+    margin: 0.5vh 0 1.5vh !important;
 }
 
 .versionBox {
-    width: 2.5vh;
-    height: 2.5vh;
-    appearance: none;
-    border: 0.3vw solid #0c6e3d;
-    cursor: default;
+    width: 2.5vh !important;
+    height: 2.5vh !important;
+    appearance: none !important;
+    border: 0.3vw solid #0c6e3d !important;
+    cursor: default !important;
 }
 
 .versionBox:checked {
-    background-color: var(--ui-select);
+    background-color: var(--ui-select) !important;
 }
 
 #patchnotesbox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5vw 1.5vw;
-    padding: 2vh;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 5vw 1.5vw !important;
+    padding: 2vh !important;
 }
 
 .patchnote {
-    display: flex;
-    flex-direction: column;
-    cursor: default;
-    width: 17vw;
-    background-color: black;
-    transition: 0.1s;
+    display: flex !important;
+    flex-direction: column !important;
+    cursor: default !important;
+    width: 17vw !important;
+    background-color: black !important;
+    transition: 0.1s !important;
 }
 
 .patchnote:hover {
-    background-color: var(--ui-main);
+    background-color: var(--ui-main) !important;
 }
 
 .patchnote img {
-    margin: 0.5vw;
-    image-rendering: pixelated;
+    margin: 0.5vw !important;
+    image-rendering: pixelated !important;
 }
 
 .patchnotedetails {
-    border-top: 0.1vh solid var(--ui-main-light);
-    padding: 0.5vw 1vw 1vw;
-    height: -webkit-fill-available;
-    font-size: 1.3vw;
+    border-top: 0.1vh solid var(--ui-main-light) !important;
+    padding: 0.5vw 1vw 1vw !important;
+    height: -webkit-fill-available !important;
+    font-size: 1.3vw !important;
 }
 
 #notescreen {
-    position: absolute;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-    background: var(--ui-main);
-    width: 100vw;
-    height: 100vh;
-    user-select: text;
+    position: absolute !important;
+    display: none !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    z-index: 1 !important;
+    background: var(--ui-main) !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    user-select: text !important;
 }
 
 .notescreenheader {
-    display: flex;
-    align-items: center;
-    font-size: 1.5vw;
-    padding: 1.5vw;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 1.5vw !important;
+    padding: 1.5vw !important;
 }
 
 .notescreenheader svg {
-    position: absolute;
-    cursor: default;
-    right: 1.5vw;
-    width: 3vw;
-    height: 3vw;
+    position: absolute !important;
+    cursor: default !important;
+    right: 1.5vw !important;
+    width: 3vw !important;
+    height: 3vw !important;
 }
 
 #notescreen hr {
-    width: 100vw;
+    width: 100vw !important;
 }
 
 .notescreendetails {
-    text-align: left;
-    width: 75vw;
-    margin: 3vh 0;
-    overflow-y: scroll;
+    text-align: left !important;
+    width: 75vw !important;
+    margin: 3vh 0 !important;
+    overflow-y: scroll !important;
 }
 
 .notescreendetails .date {
-    color: var(--text-secondary);
-    font-size: 1.1vw;
+    color: var(--text-secondary) !important;
+    font-size: 1.1vw !important;
 }
 
 .notescreendetails ul {
-    list-style: revert;
-    padding: revert;
+    list-style: revert !important;
+    padding: revert !important;
 }
 
 /* Dropdown Menu CSS */
 
 .dropdownMenu {
-    position: absolute;
-    left: 1vw;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute !important;
+    left: 1vw !important;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .dropdownOptions {
-    position: absolute;
-    display: flex;
-    height: 5vw;
-    width: 27vw;
-    align-items: center;
-    background-color: var(--ui-main-dark);
-    z-index: 999;
-    font-size: 1.1vw;
+    position: absolute !important;
+    display: flex !important;
+    height: 5vw !important;
+    width: 27vw !important;
+    align-items: center !important;
+    background-color: var(--ui-main-dark) !important;
+    z-index: 999 !important;
+    font-size: 1.1vw !important;
 }
 
 .dropdownOptions:hover {
-    background-color: var(--ui-select);
+    background-color: var(--ui-select) !important;
 }
 
 .dropdownOption {
-    position: absolute;
-    left: 2vw;
-    display: flex;
-    gap: 0.5vw;
-    align-items: center;
+    position: absolute !important;
+    left: 2vw !important;
+    display: flex !important;
+    gap: 0.5vw !important;
+    align-items: center !important;
 }
 
 .dropdownOption img {
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 2.5vw !important;
+    height: 2.5vw !important;
 }
 
 .dropdownOptionText {
-    display: grid;
-    align-items: center;
-    justify-content: flex-start;
+    display: grid !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
 }
 
 .versionText {
-    margin-right: 4.25vw;
-    display: grid;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 1.1vw;
+    margin-right: 4.25vw !important;
+    display: grid !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    font-size: 1.1vw !important;
 }
