@@ -1328,7 +1328,7 @@ minecraftlauncher: {
                     </div>
                 </div>
             <div id="dropdn" class="dropdownMenu" style="visibility: hidden;"></div>
-            <a id="playbutton" href="javascript:void(0);" onClick="openApp('minecraft'); this.parentElement.parentElement.parentElement.parentElement.remove();"><div id="mainbutton" class="playButton"></div></a>
+            <a id="playbutton" href="javascript:void(0);" onClick="openApp('minecraft'); this.parentElement.parentElement.parentElement.parentElement.remove(); const elementToRemove = document.getElementById('singular-btn'); elementToRemove.remove();"><div id="mainbutton" class="playButton"></div></a>
             <div class="username centeredIcon bolded"><p id="username">Generic User</p></div>
         </div>
     </div>
@@ -1518,6 +1518,7 @@ function openApp(key) {
   btn.className = 'button task-button';
   btn.textContent = app.title;
   btn.onclick = () => toggleMinimize(id);
+  btn.id = 'singular-btn';
   taskButtons.appendChild(btn);
 
   windows.set(id, { el: win, taskBtn: btn, minimized: false });
