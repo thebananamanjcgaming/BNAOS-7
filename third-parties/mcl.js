@@ -47,7 +47,8 @@ function generateprofile(game) {
     document.getElementById('gameicon').src = selectedGame.icon;
     document.getElementById('playbutton').href = "javascript:void(0);";
     document.getElementById('playbutton').onclick = function() {
-        openPopup(selectedGame.link);
+        var mainFrameExtra = document.getElementById('siteFrame');
+        mainFrameExtra.src = selectedGame.link;
     };
     }
     if (!modslauncher) {
@@ -74,7 +75,8 @@ function generategames(path) {
                 document.getElementById('gameicon').src = game.icon;
                 document.getElementById('playbutton').href = "javascript:void(0);";
                 document.getElementById('playbutton').onclick = function() {
-                    openPopup(game.link);
+                    var mainFrameExtra = document.getElementById('siteFrame');
+                    mainFrameExtra.src = selectedGame.link;
                 };
                 if (path === "https://bna-launcher.vercel.app/assets/json/base.json") {selectedGame1 = JSON.stringify(game); localStorage.setItem("basegame", selectedGame1)};
                 if (path === "https://bna-launcher.vercel.app/assets/json/modded.json") {selectedGame2 = JSON.stringify(game); localStorage.setItem("moddedgame", selectedGame2)};
