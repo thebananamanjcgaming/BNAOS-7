@@ -1352,6 +1352,7 @@ configurejava: {
   height: 500
 },
 {
+minecraft: {
   title: 'Minecraft',
   content: () => `
     <iframe 
