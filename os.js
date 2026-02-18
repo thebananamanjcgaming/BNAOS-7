@@ -1356,7 +1356,7 @@ minecraft: {
   content: () => `
 <iframe 
     id="siteFrame" 
-    src="https://bna-launcher.vercel.app/mc/1.6.4/" 
+    src="https://www.autistici.org/eaglercraft/play/modpack/explore/javascript/" 
     allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
     sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
     style="display: block; width: 100%; height: 100%; border: none;"
