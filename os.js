@@ -1213,7 +1213,7 @@ minecraftlauncher: {
 <iframe 
     id="siteFrame" 
     src="https://bna-launcher.vercel.app/" 
-    allow="autoplay; fullscreen; pointer-lock; microphone; camera; cross-origin-isolated" 
+    allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
     sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
     style="display: block; width: 100vw; height: 100vh; border: none; position: fixed; top: 0; left: 0;"
     tabindex="0">
