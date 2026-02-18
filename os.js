@@ -1326,11 +1326,11 @@ minecraftlauncher: {
                 <div class="dropdownSelector" onclick="dropdowntoggle()">
                     <div style="display: flex; gap: 1vw;">
                         <div class="centeredIcon">
-                            <img id="gameicon" src="./assets/images/mc-icons/grass.png" style="width: 2.5vw;" />
+                            <img id="gameicon" src="https://bna-launcher.vercel.app/assets/images/mc-icons/hay-bale.png" style="width: 2.5vw;" />
                         </div>
                         <div class="versionText">
-                            <p id="gametitle" class="bolded">Latest release</p>
-                            <p id="gameversion">1.12.2-u2</p>
+                            <p id="gametitle" class="bolded">Forge 1.6.4 (UNMODIFIED)</p>
+                            <p id="gameversion">1.6.4-25w17a (Forge 9.11.1.965)</p>
                         </div>
                         <div id="dropdownuparrow" class="centeredIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -1371,7 +1371,7 @@ minecraft: {
   content: () => `
 <iframe 
     id="siteFrame" 
-    src="https://bna-launcher.vercel.app/mc/1.12.2/" 
+    src="https://bna-launcher.vercel.app/mc/1.6.4/" 
     allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
     sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
     style="display: block; width: 100%; height: 100%; border: none;"
