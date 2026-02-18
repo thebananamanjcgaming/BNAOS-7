@@ -1236,6 +1236,18 @@ minecraftlauncher: {
   `,
   width: 700,
   height: 500
+},
+configurejava: {
+  title: 'Configure Java',
+  content: () => `
+<p>Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+    at com.oracle.openjdk.config(MyApplication.java:0)
+	at NaN(NULL)
+</p>
+<button class="button" id="cancel-saveas">Cancel</button>
+  `,
+  width: 700,
+  height: 500
 }
 };
 
