@@ -1257,27 +1257,24 @@ minecraftlauncher: {
         </div>
     </div>
     <div class="sidebar" id="sidebar">
-        <div id="gtabs1" class="sidebarOptions" style="gap: 1vw;" onclick="location.href='https://discord.gg/xuu8TnSY4b'">
-            <img src="https://bna-launcher.vercel.app/assets/images/sidebar/m-discord.png"><div class="gTabsText"><p>Discord</p></div>
-        </div>
         <div onclick="webedition()" id="gtabs2" class="sidebarOptions selected">
             <img src="https://bna-launcher.vercel.app/assets/images/sidebar/i-web.png">
             <div class="gTabsText">
-                <p class="eaglercraftText"> EAGLERCRAFT : </p>
-                <p>Web Edition </p>
+                <p class="eaglercraftText"> MINECRAFT : </p>
+                <p>Java Edition </p>
             </div>
         </div>
         <div onclick="moddededition()" id="gtabs3" class="sidebarOptions">
             <img src="https://bna-launcher.vercel.app/assets/images/sidebar/i-modded.png">
             <div class="gTabsText">
-                <p class="eaglercraftText"> EAGLERCRAFT : </p>
+                <p class="eaglercraftText"> MINECRAFT : </p>
                 <p>Modded Editions </p>
             </div>
         </div>
         <div onclick="eaglercontrols()" id="gtabs4" class="sidebarOptions">
             <img src="https://bna-launcher.vercel.app/assets/images/sidebar/i-controls.png">
             <div class="gTabsText">
-                <p class="eaglercraftText"> EAGLERCRAFT : </p>
+                <p class="eaglercraftText"> MINECRAFT : </p>
                 <p>Mobile/Controller </p>
             </div>
         </div>
@@ -1291,7 +1288,7 @@ minecraftlauncher: {
     </div>
     <div class="mainPage">
         <div class="gameHeader">
-            <p id="gameedition" class="currentGame bolded">EAGLERCRAFT: WEB EDITION</p>
+            <p id="gameedition" class="currentGame bolded">MINECRAFT: JAVA EDITION</p>
                 <ul class="gameTabs">
                     <li id="header1" class="headerButtons selected" onclick="playheader()">Play</li>
                     <li id="header2" style="display: none;" class="headerButtons" onclick="modsheader()">Mods</li>
@@ -1354,8 +1351,8 @@ minecraftlauncher: {
 </body>
 </html>
   `,
-  width: 1100,
-  height: 550
+  width: 1500,
+  height: 780
 },
 configurejava: {
   title: 'Configure Java',
