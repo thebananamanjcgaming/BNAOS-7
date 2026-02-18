@@ -1351,8 +1351,8 @@ minecraftlauncher: {
 </body>
 </html>
   `,
-  width: 1500,
-  height: 780
+  width: 1300,
+  height: 600
 },
 configurejava: {
   title: 'Configure Java',
