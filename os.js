@@ -1217,10 +1217,10 @@ minecraftlauncher: {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BNALauncher</title>
-    <link rel="stylesheet" href="/third-parties/mcl-style.css">
-    <link rel="stylesheet" media="screen and (max-width: 1100px)" href="css/screensize.css">
-    <link rel="stylesheet" media="screen and (max-height: 550px)" href="css/screensize.css">
-    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://bna-launcher.vercel.app/css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1100px)" href="https://bna-launcher.vercel.app/css/screensize.css">
+    <link rel="stylesheet" media="screen and (max-height: 550px)" href="https://bna-launcher.vercel.app/css/screensize.css">
+    <link rel="shortcut icon" href="https://bna-launcher.vercel.app/assets/images/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -1258,34 +1258,34 @@ minecraftlauncher: {
     </div>
     <div class="sidebar" id="sidebar">
         <div id="gtabs1" class="sidebarOptions" style="gap: 1vw;" onclick="location.href='https://discord.gg/xuu8TnSY4b'">
-            <img src="./assets/images/sidebar/m-discord.png"><div class="gTabsText"><p>Discord</p></div>
+            <img src="https://bna-launcher.vercel.app/assets/images/sidebar/m-discord.png"><div class="gTabsText"><p>Discord</p></div>
         </div>
         <div onclick="webedition()" id="gtabs2" class="sidebarOptions selected">
-            <img src="./assets/images/sidebar/i-web.png">
+            <img src="https://bna-launcher.vercel.app/assets/images/sidebar/i-web.png">
             <div class="gTabsText">
                 <p class="eaglercraftText"> EAGLERCRAFT : </p>
                 <p>Web Edition </p>
             </div>
         </div>
         <div onclick="moddededition()" id="gtabs3" class="sidebarOptions">
-            <img src="./assets/images/sidebar/i-modded.png">
+            <img src="https://bna-launcher.vercel.app/assets/images/sidebar/i-modded.png">
             <div class="gTabsText">
                 <p class="eaglercraftText"> EAGLERCRAFT : </p>
                 <p>Modded Editions </p>
             </div>
         </div>
         <div onclick="eaglercontrols()" id="gtabs4" class="sidebarOptions">
-            <img src="./assets/images/sidebar/i-controls.png">
+            <img src="https://bna-launcher.vercel.app/assets/images/sidebar/i-controls.png">
             <div class="gTabsText">
                 <p class="eaglercraftText"> EAGLERCRAFT : </p>
                 <p>Mobile/Controller </p>
             </div>
         </div>
         <div id="gtabs5" class="sidebarOptions sidebarBottom" onclick="errorNA('credits')">
-            <img src="./assets/images/sidebar/m-credits.png"><div class="gTabsText"><p> Credits</p></div>
+            <img src="https://bna-launcher.vercel.app/assets/images/sidebar/m-credits.png"><div class="gTabsText"><p> Credits</p></div>
         </div>
         <div id="gtabs6" class="sidebarOptions sidebarBottom" onclick="errorNA('settings')">
-            <img src="./assets/images/sidebar/m-settings.png"><div class="gTabsText"><p> Settings</p></div>
+            <img src="https://bna-launcher.vercel.app/assets/images/sidebar/m-settings.png"><div class="gTabsText"><p> Settings</p></div>
         </div>
         <div class="launcherVersion"><p>v1.4.00</p></div>
     </div>
@@ -1302,7 +1302,7 @@ minecraftlauncher: {
                 </ul>
         </div>
         <div id="mods">
-            <img class="modketplace-title" src="./assets/images/modketplace-title.png" alt="modketplace">
+            <img class="modketplace-title" src="https://bna-launcher.vercel.app/assets/images/modketplace-title.png" alt="modketplace">
             <p class="bolded modssubtitle">Community mods for the EaglerForge Installation.</p>
             <div id="modsbox"></div>
         </div>
@@ -1312,8 +1312,8 @@ minecraftlauncher: {
             <div id="faqbox"></div>
         </div>
         <div id="installations"><div id="installationsbox"></div></div>
-        <div id="game-bg" style="background-image: url(./assets/images/web-edition.jpg);">
-            <img id="game-title" src="./assets/images/web-title.png" alt="eaglercraft">
+        <div id="game-bg" style="background-image: url(https://bna-launcher.vercel.app/assets/images/web-edition.jpg);">
+            <img id="game-title" src="https://bna-launcher.vercel.app/assets/images/web-title.png" alt="eaglercraft">
         </div>
         <div id="patchNotes">
             <div style="padding: 2vh 3vw 7vh;">
