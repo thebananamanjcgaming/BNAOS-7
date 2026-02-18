@@ -1328,7 +1328,7 @@ minecraftlauncher: {
                     </div>
                 </div>
             <div id="dropdn" class="dropdownMenu" style="visibility: hidden;"></div>
-            <a id="playbutton" href="javascript:void(0);" onClick="openApp('minecraft'); closeWindow('minecraftlauncher');"><div id="mainbutton" class="playButton"></div></a>
+            <a id="playbutton" href="javascript:void(0);" onClick="openApp('minecraft'); this.parentElement.remove();"><div id="mainbutton" class="playButton"></div></a>
             <div class="username centeredIcon bolded"><p id="username">Generic User</p></div>
         </div>
     </div>
