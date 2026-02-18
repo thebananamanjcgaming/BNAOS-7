@@ -1,644 +1,644 @@
 /* General CSS */
 ::-webkit-scrollbar {
-    width: 0 !important;
-    background: transparent !important;
+    width: 0;
+    background: transparent;
 }
 
 html {
-    display: block !important;
-    line-height: 1.5 !important;
-    -webkit-user-select: none !important;
-    -ms-user-select: none !important;
-    user-select: none !important;
-    overflow: hidden !important;
-    height: 100% !important;
+    display: block;
+    line-height: 1.5;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    height: 100%;
 }
 
 body {
-    position: relative !important;
-    display: flex !important;
-    color: white !important;
-    align-items: flex-start !important;
-    background-color: #303030 !important;
-    margin: 0 !important;
-    line-height: inherit !important;
-    overflow: hidden !important;
-    height: 100% !important;
-    font-family: "Noto Sans", sans-serif !important;
-    --ui-main-lighter: #514d4c !important;
-    --ui-main-light: #353535 !important;
-    --ui-main: #1e1e1e !important;
-    --ui-main-dark: #131313 !important;
-    --text-secondary: #cccccc !important;
-    --ui-select: #008542 !important;
+    position: relative;
+    display: flex;
+    color: white;
+    align-items: flex-start;
+    background-color: #303030;
+    margin: 0;
+    line-height: inherit;
+    overflow: hidden;
+    height: 100%;
+    font-family: "Noto Sans", sans-serif;
+    --ui-main-lighter: #514d4c;
+    --ui-main-light: #353535;
+    --ui-main: #1e1e1e;
+    --ui-main-dark: #131313;
+    --text-secondary: #cccccc;
+    --ui-select: #008542;
 }
 
 ul {
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6, hr, p {
-    margin: 0 !important;
+    margin: 0;
 }
 
 hr {
-    border: 0.1vh solid var(--ui-main-light) !important;
-    width: 74vw !important;
+    border: 0.1vh solid var(--ui-main-light);
+    width: 74vw;
 }
 
 .bolded {
-    font-weight: 800 !important;
+    font-weight: 800;
 }
 
 /* Error CSS */
 
 .error {
-    display: none !important;
-    position: absolute !important;
-    right: 0 !important;
-    z-index: 1 !important;
-    padding: 0.5vw 1vw !important;
-    margin: 1vw 0.5vw !important;
-    background: rgba(0, 0, 0, 0.25) !important;
-    border-radius: 1.5vw !important;
-    font-style: italic !important;
-    transition: 0.3s !important;
-    animation: drop .5s linear forwards !important;
-    font-size: 1.5vw !important;
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    padding: 0.5vw 1vw;
+    margin: 1vw 0.5vw;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 1.5vw;
+    font-style: italic;
+    transition: 0.3s;
+    animation: drop .5s linear forwards;
+    font-size: 1.5vw;
 }
 
 #naerror {
-    color: gold !important;
-    border: gold solid 0.1vw !important;
+    color: gold;
+    border: gold solid 0.1vw;
 }
 
 #screenerror {
-    right: 35% !important;
-    padding: 0.25vw 4vw !important;
-    color: darkred !important;
-    font-size: 1vw !important;
-    border: red solid 0.1vw !important;
+    right: 35%;
+    padding: 0.25vw 4vw;
+    color: darkred;
+    font-size: 1vw;
+    border: red solid 0.1vw;
 }
 
 .zoom-out {
-    animation: zoomed 0.2s linear forwards !important;
+    animation: zoomed 0.2s linear forwards;
 }
 
 @keyframes zoomed {
     100% {
-        transform: translateY(10px) scale(0) !important;
-        display: none !important;
+        transform: translateY(10px) scale(0);
+        display: none;
     }
 }
 
 /* Sidebar CSS */
 
 .sidebar {
-    height: 100vh !important;
-    width: 16vw !important;
-    background-color: var(--ui-main) !important;
+    height: 100vh;
+    width: 16vw;
+    background-color: var(--ui-main);
 }
 
 .sidebarOptions {
-    display: flex !important;
-    height: 5vw !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 1.5vw !important;
-    padding-left: 1.5vw !important;
-    font-size: 0.9vw !important;
-    line-height: 1.5vw !important;
-    transition: 0.3s !important;
+    display: flex;
+    height: 5vw;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5vw;
+    padding-left: 1.5vw;
+    font-size: 0.9vw;
+    line-height: 1.5vw;
+    transition: 0.3s;
 }
 
 .sidebarOptions:hover {
-    cursor: default !important;
-    background-color: var(--ui-main-light) !important;
+    cursor: default;
+    background-color: var(--ui-main-light);
 }
 
 .sidebarOptions.sidebarBottom {
-    position: absolute !important;
+    position: absolute;
 }
 
 .sidebarOptions.selected {
-    font-weight: 700 !important; 
-    border-left: 0.4vw solid var(--ui-select) !important;
+    font-weight: 700; 
+    border-left: 0.4vw solid var(--ui-select);
 }
 
-#gtabs1 img {width: 3vw !important;}
-#gtabs2 img, #gtabs3 img, #gtabs4 img {width: 2.5vw !important;}
-#gtabs5 {bottom: 7.5vw !important; width: 14.5vw !important;}
-#gtabs6 {bottom: 2.5vw !important; width: 14.5vw !important;}
-#gtabs5 img, #gtabs6 img {width: 2vw !important;}
+#gtabs1 img {width: 3vw;}
+#gtabs2 img, #gtabs3 img, #gtabs4 img {width: 2.5vw;}
+#gtabs5 {bottom: 7.5vw; width: 14.5vw;}
+#gtabs6 {bottom: 2.5vw; width: 14.5vw;}
+#gtabs5 img, #gtabs6 img {width: 2vw;}
 
 .eaglercraftText {
-    font-size: 1.1vw !important;
+    font-size: 1.1vw;
 }
 
 .launcherVersion {
-    position: absolute !important;
-    bottom: 0.25vw !important;
-    left: 1.25vw !important;
-    right: 0 !important;
-    z-index: 1 !important;
-    font-size: 1.1vw !important;
-    color: var(--text-secondary) !important;
-    width: fit-content !important;
+    position: absolute;
+    bottom: 0.25vw;
+    left: 1.25vw;
+    right: 0;
+    z-index: 1;
+    font-size: 1.1vw;
+    color: var(--text-secondary);
+    width: fit-content;
 }
 
 /* Header CSS */
 
 .mainPage {
-    width: 84vw !important;
-    background-color: var(--ui-main) !important;
+    width: 84vw;
+    background-color: var(--ui-main);
 }
 
-.gameHeader {padding: 1.8vw 1.8vw 0 !important;}
-.currentGame {font-size: 1.2vw !important;}
+.gameHeader {padding: 1.8vw 1.8vw 0;}
+.currentGame {font-size: 1.2vw;}
 
 .gameTabs {
-    display: flex !important;
-    align-items: center !important;
+    display: flex;
+    align-items: center;
 }
 
 .headerButtons {
-    padding: 0.6vw 1.1vw !important;
-    color: var(--text-secondary) !important;
-    font-size: 0.95vw !important;
-    line-height: 1.7vw !important;
-    transition: 0.3s !important;
+    padding: 0.6vw 1.1vw;
+    color: var(--text-secondary);
+    font-size: 0.95vw;
+    line-height: 1.7vw;
+    transition: 0.3s;
 }
 
 .headerButtons:hover {
-    cursor: default !important;
+    cursor: default;
     color: white
 }
 
 .headerButtons.selected {
-    cursor: default !important;
-    color: white !important;
-    font-weight: 800 !important;
-    border-bottom: var(--ui-select) solid 0.21vw !important;
+    cursor: default;
+    color: white;
+    font-weight: 800;
+    border-bottom: var(--ui-select) solid 0.21vw;
 }
 
 /* Body CSS */
 
 #game-bg {
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    position: absolute !important;
-    display: flex !important;
-    width: 84vw !important;
-    height: 84vh !important;
-    justify-content: center !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: flex;
+    width: 84vw;
+    height: 84vh;
+    justify-content: center;
 }
 
 #game-title {
-    width: 40vw !important;
-    height: 6.5vw !important;
-    margin-top: 6vw !important;
-    animation: drop .5s linear forwards !important;
+    width: 40vw;
+    height: 6.5vw;
+    margin-top: 6vw;
+    animation: drop .5s linear forwards;
 }
 
 #gameSelection {
-    position: absolute !important;
-    bottom: 0 !important;
-    width: 84vw !important;
-    height: 4.5vw !important;
-    justify-content: space-around !important;
-    display: flex !important;
-    background-color: var(--ui-main) !important;
+    position: absolute;
+    bottom: 0;
+    width: 84vw;
+    height: 4.5vw;
+    justify-content: space-around;
+    display: flex;
+    background-color: var(--ui-main);
 }
 
 .dropdownSelector {
-    position: absolute !important;
-    left: 1vw !important;
-    display: flex !important;
-    height: 4.5vw !important;
-    width: 27vw !important;
-    align-items: center !important;
-    justify-content: space-around !important;
-    transition: 0.3s !important;
+    position: absolute;
+    left: 1vw;
+    display: flex;
+    height: 4.5vw;
+    width: 27vw;
+    align-items: center;
+    justify-content: space-around;
+    transition: 0.3s;
 }
 
 .dropdownSelector:hover {
-    cursor: default !important;
-    background-color: var(--ui-main-light) !important;
+    cursor: default;
+    background-color: var(--ui-main-light);
 }
 
 .centeredIcon {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dropdownIcon {
-    color: white !important;
-    width: 1.75vw !important;
+    color: white;
+    width: 1.75vw;
 }
 
 .playButton {
-    position: absolute !important;
-    left: 32vw !important;
-    bottom: 0.5vw !important;
-    display: flex !important;
-    align-items: center !important;
-    width: 21.5vw !important;
-    height: 5vw !important;
-    background-image: url(https://bna-launcher.vercel.app/assets/images/play.png) !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    transition: 0.1s !important;
+    position: absolute;
+    left: 32vw;
+    bottom: 0.5vw;
+    display: flex;
+    align-items: center;
+    width: 21.5vw;
+    height: 5vw;
+    background-image: url(https://bna-launcher.vercel.app/assets/images/play.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.1s;
 }
 
 .playButton:hover {
-    cursor: default !important;
-    background-image: url(https://bna-launcher.vercel.app/assets/images/play-hover.png) !important;
-    transform: scale(1.05) !important;
+    cursor: default;
+    background-image: url(https://bna-launcher.vercel.app/assets/images/play-hover.png);
+    transform: scale(1.05);
 }
 
 .username {
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    right: 3vw !important;
-    font-size: 1.35vw !important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 3vw;
+    font-size: 1.35vw;
 }
 
 @keyframes drop {
     0% {
-        transform: translateY(-300px) scaleY(0.9) !important;
-        opacity: 0 !important;
+        transform: translateY(-300px) scaleY(0.9);
+        opacity: 0;
     }
 
     5% {
-        opacity: .7 !important;
+        opacity: .7;
     }
 
     50% {
-        transform: translateY(0) scaleY(1) !important;
-        opacity: 1 !important;
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
     }
 
     65% {
-        transform: translateY(-17px) scaleY(.9) !important;
-        opacity: 1 !important;
+        transform: translateY(-17px) scaleY(.9);
+        opacity: 1;
     }
 
     75% {
-        transform: translateY(-22px) scaleY(.9) !important;
-        opacity: 1 !important;
+        transform: translateY(-22px) scaleY(.9);
+        opacity: 1;
     }
 
     100% {
-        transform: translateY(0) scaleY(1) !important;
-        opacity: 1 !important;
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
     }
 }
 
 /* Mods Menu CSS */
 
 #mods {
-    position: absolute !important;
-    display: none !important;
-    width: 84vw !important;
-    height: 91vh !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    overflow-y: scroll !important;
+    position: absolute;
+    display: none;
+    width: 84vw;
+    height: 91vh;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
 }
 
 .modketplace-title {
-    margin: 4vh 0 1vh !important;
-    width: 58vw !important;
+    margin: 4vh 0 1vh;
+    width: 58vw;
 }
 
 .modssubtitle {
-    font-size: 1.6vw !important;
+    font-size: 1.6vw;
 }
 
 #modsbox {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 5vw 1.5vw !important;
-    padding: 4vh 0 7vh !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw 1.5vw;
+    padding: 4vh 0 7vh;
 }
 
 .modoption {
-    display: flex !important;
-    flex-direction: column !important;
-    cursor: default !important;
-    width: 18vw !important;
-    border: 0.5vw solid var(--ui-main) !important;
-    transition: 0.1s !important;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    width: 18vw;
+    border: 0.5vw solid var(--ui-main);
+    transition: 0.1s;
 }
 
 .modoption:hover {
-    scale: 1.05 !important;
+    scale: 1.05;
 }
 
 .modoption img {
-    border: 0.3vw solid #AA0000 !important;
-    image-rendering: pixelated !important;
+    border: 0.3vw solid #AA0000;
+    image-rendering: pixelated;
 }
 
 .modoption.selected img {
-    border: 0.3vw solid #00AA00 !important;
+    border: 0.3vw solid #00AA00;
 }
 
 .modoption:hover img {
-    background-color: rgba(255, 255, 255, 0.05) !important;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .moddetails {
-    background-color: var(--ui-main-lighter) !important;
-    padding: 0.5vw !important;
-    height: -webkit-fill-available !important;
-    font-size: 1.3vw !important;
+    background-color: var(--ui-main-lighter);
+    padding: 0.5vw;
+    height: -webkit-fill-available;
+    font-size: 1.3vw;
 }
 
 .modtitle {
-    font-size: 1.5vw !important;
+    font-size: 1.5vw;
 }
 
 .modauthor {
-    text-decoration: underline !important;
+    text-decoration: underline;
 }
 
 /* FAQ Menu CSS */
 
 #faq {
-    position: absolute !important;
-    display: none !important;
-    width: 84vw !important;
-    height: 91vh !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    background-color: var(--ui-main-dark) !important;
-    overflow-y: scroll !important;
-    font-size: 1.3vw !important;
+    position: absolute;
+    display: none;
+    width: 84vw;
+    height: 91vh;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--ui-main-dark);
+    overflow-y: scroll;
+    font-size: 1.3vw;
 }
 
 .faqtitle {
-    font-size: 2.3vw !important;
-    padding-top: 3vh !important;
+    font-size: 2.3vw;
+    padding-top: 3vh;
 }
 
 #faqbox {
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 5vh 11vw 7vh !important;
-    width: -webkit-fill-available !important;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 11vw 7vh;
+    width: -webkit-fill-available;
 }
 
 .faqoption {
-    margin-bottom: 3vh !important;
+    margin-bottom: 3vh;
 }
 
 .faqtext {
-    display: flex !important;
-    align-items: center !important;
-    gap: 2vw !important;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
 }
 
 .faqsymbol {
-    font-size: 2vw !important;
+    font-size: 2vw;
 }
 
 /* Installations Menu CSS */
 
 #installations {
-    position: absolute !important;
-    display: none !important;
-    width: 84vw !important;
-    height: 91vh !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    background-color: var(--ui-main-dark) !important;
-    overflow-y: scroll !important;
+    position: absolute;
+    display: none;
+    width: 84vw;
+    height: 91vh;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--ui-main-dark);
+    overflow-y: scroll;
 }
 
 #installationsbox {
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 5vh 0 7vh !important;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 0 7vh;
 }
 
 .installationOptions {
-    display: flex !important;
-    height: 9vh !important;
-    width: 74vw !important;
-    align-items: center !important;
-    font-size: 1.2vw !important;
+    display: flex;
+    height: 9vh;
+    width: 74vw;
+    align-items: center;
+    font-size: 1.2vw;
 }
 
 .installationOptions:hover, .installationBox:hover {
-    background-color: var(--ui-main-light) !important;
+    background-color: var(--ui-main-light);
 }
 
 .installationOption {
-    position: absolute !important;
-    left: 7vw !important;
-    display: flex !important;
-    gap: 2vw !important;
-    align-items: center !important;
-    cursor: default !important;
+    position: absolute;
+    left: 7vw;
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    cursor: default;
 }
 
 .installationBox {
-    width: 3.5vh !important;
-    height: 3.5vh !important;
-    appearance: none !important;
-    border: 0.3vw solid #0c6e3d !important;
-    pointer-events: none !important;
+    width: 3.5vh;
+    height: 3.5vh;
+    appearance: none;
+    border: 0.3vw solid #0c6e3d;
+    pointer-events: none;
 }
 
 .installationBox:checked {
-  background-color: var(--ui-select) !important;
+  background-color: var(--ui-select);
 }
 
 .installationBox:checked:hover {
-    background-color: #0f9a54 !important;
+    background-color: #0f9a54;
 }
 
 .installationOption img {
-    width: 5.5vh !important;
-    height: 5.5vh !important;
+    width: 5.5vh;
+    height: 5.5vh;
 }
 
 .installationOptionText {
-    display: grid !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
+    display: grid;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 /* Patch Notes Menu CSS */
 
 #patchNotes {
-    position: absolute !important;
-    display: none !important;
-    width: 84vw !important;
-    height: 91vh !important;
-    flex-direction: column !important;
-    background-color: var(--ui-main-dark) !important;
-    overflow-y: scroll !important;
+    position: absolute;
+    display: none;
+    width: 84vw;
+    height: 91vh;
+    flex-direction: column;
+    background-color: var(--ui-main-dark);
+    overflow-y: scroll;
 }
 
 .patchnotes-title {
-    font-size: 1.4vw !important;
+    font-size: 1.4vw;
 }
 
 .versionscontainer {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.5vw !important;
-    margin: 0.5vh 0 1.5vh !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    margin: 0.5vh 0 1.5vh;
 }
 
 .versionBox {
-    width: 2.5vh !important;
-    height: 2.5vh !important;
-    appearance: none !important;
-    border: 0.3vw solid #0c6e3d !important;
-    cursor: default !important;
+    width: 2.5vh;
+    height: 2.5vh;
+    appearance: none;
+    border: 0.3vw solid #0c6e3d;
+    cursor: default;
 }
 
 .versionBox:checked {
-    background-color: var(--ui-select) !important;
+    background-color: var(--ui-select);
 }
 
 #patchnotesbox {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 5vw 1.5vw !important;
-    padding: 2vh !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw 1.5vw;
+    padding: 2vh;
 }
 
 .patchnote {
-    display: flex !important;
-    flex-direction: column !important;
-    cursor: default !important;
-    width: 17vw !important;
-    background-color: black !important;
-    transition: 0.1s !important;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    width: 17vw;
+    background-color: black;
+    transition: 0.1s;
 }
 
 .patchnote:hover {
-    background-color: var(--ui-main) !important;
+    background-color: var(--ui-main);
 }
 
 .patchnote img {
-    margin: 0.5vw !important;
-    image-rendering: pixelated !important;
+    margin: 0.5vw;
+    image-rendering: pixelated;
 }
 
 .patchnotedetails {
-    border-top: 0.1vh solid var(--ui-main-light) !important;
-    padding: 0.5vw 1vw 1vw !important;
-    height: -webkit-fill-available !important;
-    font-size: 1.3vw !important;
+    border-top: 0.1vh solid var(--ui-main-light);
+    padding: 0.5vw 1vw 1vw;
+    height: -webkit-fill-available;
+    font-size: 1.3vw;
 }
 
 #notescreen {
-    position: absolute !important;
-    display: none !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    z-index: 1 !important;
-    background: var(--ui-main) !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    user-select: text !important;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    background: var(--ui-main);
+    width: 100vw;
+    height: 100vh;
+    user-select: text;
 }
 
 .notescreenheader {
-    display: flex !important;
-    align-items: center !important;
-    font-size: 1.5vw !important;
-    padding: 1.5vw !important;
+    display: flex;
+    align-items: center;
+    font-size: 1.5vw;
+    padding: 1.5vw;
 }
 
 .notescreenheader svg {
-    position: absolute !important;
-    cursor: default !important;
-    right: 1.5vw !important;
-    width: 3vw !important;
-    height: 3vw !important;
+    position: absolute;
+    cursor: default;
+    right: 1.5vw;
+    width: 3vw;
+    height: 3vw;
 }
 
 #notescreen hr {
-    width: 100vw !important;
+    width: 100vw;
 }
 
 .notescreendetails {
-    text-align: left !important;
-    width: 75vw !important;
-    margin: 3vh 0 !important;
-    overflow-y: scroll !important;
+    text-align: left;
+    width: 75vw;
+    margin: 3vh 0;
+    overflow-y: scroll;
 }
 
 .notescreendetails .date {
-    color: var(--text-secondary) !important;
-    font-size: 1.1vw !important;
+    color: var(--text-secondary);
+    font-size: 1.1vw;
 }
 
 .notescreendetails ul {
-    list-style: revert !important;
-    padding: revert !important;
+    list-style: revert;
+    padding: revert;
 }
 
 /* Dropdown Menu CSS */
 
 .dropdownMenu {
-    position: absolute !important;
-    left: 1vw !important;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: absolute;
+    left: 1vw;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dropdownOptions {
-    position: absolute !important;
-    display: flex !important;
-    height: 5vw !important;
-    width: 27vw !important;
-    align-items: center !important;
-    background-color: var(--ui-main-dark) !important;
-    z-index: 999 !important;
-    font-size: 1.1vw !important;
+    position: absolute;
+    display: flex;
+    height: 5vw;
+    width: 27vw;
+    align-items: center;
+    background-color: var(--ui-main-dark);
+    z-index: 999;
+    font-size: 1.1vw;
 }
 
 .dropdownOptions:hover {
-    background-color: var(--ui-select) !important;
+    background-color: var(--ui-select);
 }
 
 .dropdownOption {
-    position: absolute !important;
-    left: 2vw !important;
-    display: flex !important;
-    gap: 0.5vw !important;
-    align-items: center !important;
+    position: absolute;
+    left: 2vw;
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
 }
 
 .dropdownOption img {
-    width: 2.5vw !important;
-    height: 2.5vw !important;
+    width: 2.5vw;
+    height: 2.5vw;
 }
 
 .dropdownOptionText {
-    display: grid !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
+    display: grid;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .versionText {
-    margin-right: 4.25vw !important;
-    display: grid !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    font-size: 1.1vw !important;
+    margin-right: 4.25vw;
+    display: grid;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.1vw;
 }
