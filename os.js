@@ -1402,6 +1402,14 @@ youtube: {
 	<!-- Elfsight YouTube Gallery | Untitled YouTube Gallery -->
 	<script src="https://elfsightcdn.com/platform.js" async></script>
 	<div class="elfsight-app-a89020a8-b7b6-4206-99be-c901e525fc7d" data-elfsight-app-lazy></div>
+    <iframe 
+        id="youtube" 
+        src="https://a89020a8b7b6420699bec901e525fc7d.elf.site/" 
+        allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
+        sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
+        style="display: block; width: 100%; height: 100%; border: none;" 
+        tabindex="0">
+    </iframe>
   `
 }
 };
