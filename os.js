@@ -1351,7 +1351,6 @@ configurejava: {
   width: 700,
   height: 500
 },
-{
 minecraft: {
   title: 'Minecraft',
   content: () => `
