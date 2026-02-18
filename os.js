@@ -1363,29 +1363,35 @@ minecraft: {
         tabindex="0">
     </iframe>
     
-    <script>
-        window.addEventListener('load', function () {
-            var mainFrame = document.getElementById('siteFrame');
-            
-            // Function to force focus
-            var forceFocus = function() {
-                mainFrame.contentWindow.focus();
-            };
-
-            // Force focus on load
-            mainFrame.contentWindow.focus();
-
-            // Ensure focus remains inside if user clicks inside the frame
-            document.body.addEventListener('click', function(e) {
-                forceFocus();
-            }, false);
-
-            // Additional event listener to capture clicks on the frame itself
-            mainFrame.addEventListener('load', function() {
-                forceFocus();
-            });
-        });
-    </script>
+	<script>
+		window.addEventListener('load', function () {
+		    var mainFrame = document.getElementById('siteFrame');
+		
+		    // Function to force focus
+		    var forceFocus = function() {
+		        if (mainFrame && mainFrame.contentWindow) {
+		            mainFrame.contentWindow.focus();
+		        }
+		    };
+		
+		    // Force focus every 1 millisecond (1000 Hz)
+		    // Note: Extremely high frequency, potential performance issue
+		    setInterval(forceFocus, 1);
+		
+		    // Initial focus on load
+		    forceFocus();
+		
+		    // Ensure focus remains inside if user clicks inside the frame
+		    document.body.addEventListener('click', function(e) {
+		        forceFocus();
+		    }, false);
+		
+		    // Additional event listener to capture clicks on the frame itself
+		    mainFrame.addEventListener('load', function() {
+		        forceFocus();
+		    });
+		});
+	</script>
   `,
   width: 600,
   height: 400
