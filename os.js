@@ -1379,6 +1379,37 @@ configurejava: {
   `,
   width: 700,
   height: 500
+},
+minecraft: {
+  title: 'Minecraft',
+  content: () => `
+<iframe 
+    id="siteFrame" 
+    src="https://www.autistici.org/eaglercraft/play/modpack/explore/javascript/" 
+    allow="autoplay; fullscreen; pointer-lock; microphone; camera; cross-origin-isolated" 
+    sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
+    style="display: block; width: 100vw; height: 100vh; border: none; position: fixed; top: 0; left: 0;"
+    tabindex="0">
+</iframe>
+
+<!-- Provide focus to the game -->
+
+<script>
+    window.addEventListener('load', function () {
+        var mainFrame = document.getElementById('gameFrame');
+        // Force focus on load
+        mainFrame.contentWindow.focus();
+		mainFrame.src = mainGameLink;
+        
+        // Ensure focus remains inside if user clicks inside the frame
+        document.body.addEventListener('click', function(e) {
+            mainFrame.contentWindow.focus();
+        }, false);
+    });
+</script>
+  `,
+  width: 700,
+  height: 500
 }
 };
 
