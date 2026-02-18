@@ -48,7 +48,9 @@ const Apps = {
         <p>It supports up to 10-core usage for emulation and fully simulates the Windows UI.</p>
         <h3>Version</h3>
         <p>(emulated) Microsoft Windows 7 SP2</p>
-        <p>(simulated) BNAOS Version Release 5.2.72 Iteration 1 (Aero Glass)</p>
+        <p>(simulated) BNAOS Version Release 5.2.72 Iteration 1 Snapshot MC-2026-1A (Aero Glass)</p>
+		<h3>-- SNAPSHOT DETAILS --</h3>
+		<p>Currently implementing Java Runtime Environment 8.1 features for Minecraft: Java Edition support</p>
       </div>
     `,
     width: 300,
@@ -1216,7 +1218,6 @@ minecraftlauncher: {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNALauncher</title>
     <link rel="stylesheet" href="/third-parties/mcl-style.css">
     <link rel="stylesheet" media="screen and (max-width: 1100px)" href="css/screensize.css">
     <link rel="stylesheet" media="screen and (max-height: 550px)" href="css/screensize.css">
@@ -1224,22 +1225,6 @@ minecraftlauncher: {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Discord -->
-    <meta content="BNALauncher" property="og:title">
-    <meta content="A cool minecraft themed launcher for EaglerCraft!" property="og:description">
-    <meta content="https://bna-launcher.vercel.app/" property="og:url">
-    <meta content="https://irv77.github.io/AmplerLauncher/assets/images/logo.png" property="og:image">
-    <meta content="#786d81" data-react-helmet="true" name="theme-color">
-    <!-- Mobile & PWA -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="https://irv77.github.io/AmplerLauncher/assets/images/logo.png">
-    <meta name="description" content="This is a modern Minecraft styled EaglerCraft launcher application">
-    <meta name="theme-color" content="#000000">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="BNALauncher">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="BNALauncher">
 </head>
 
 <body>
