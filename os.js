@@ -1351,32 +1351,41 @@ configurejava: {
   width: 700,
   height: 500
 },
-minecraft: {
+{
   title: 'Minecraft',
   content: () => `
-<iframe 
-    id="siteFrame" 
-    src="https://www.autistici.org/eaglercraft/play/modpack/explore/javascript/" 
-    allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
-    sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
-    style="display: block; width: 100%; height: 100%; border: none;"
-    tabindex="0">
-</iframe>
+    <iframe 
+        id="siteFrame" 
+        src="https://www.autistici.org/eaglercraft/play/modpack/explore/javascript/" 
+        allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
+        sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
+        style="display: block; width: 100%; height: 100%; border: none;" 
+        tabindex="0">
+    </iframe>
+    
+    <script>
+        window.addEventListener('load', function () {
+            var mainFrame = document.getElementById('siteFrame');
+            
+            // Function to force focus
+            var forceFocus = function() {
+                mainFrame.contentWindow.focus();
+            };
 
-<!-- Provide focus to the game -->
-
-<script>
-    window.addEventListener('load', function () {
-        var mainFrame = document.getElementById('siteFrame');
-        // Force focus on load
-        mainFrame.contentWindow.focus();
-        
-        // Ensure focus remains inside if user clicks inside the frame
-        document.body.addEventListener('click', function(e) {
+            // Force focus on load
             mainFrame.contentWindow.focus();
-        }, false);
-    });
-</script>
+
+            // Ensure focus remains inside if user clicks inside the frame
+            document.body.addEventListener('click', function(e) {
+                forceFocus();
+            }, false);
+
+            // Additional event listener to capture clicks on the frame itself
+            mainFrame.addEventListener('load', function() {
+                forceFocus();
+            });
+        });
+    </script>
   `,
   width: 600,
   height: 400
