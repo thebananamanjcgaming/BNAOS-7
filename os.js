@@ -1218,6 +1218,8 @@ minecraftlauncher: {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BNALauncher</title>
     <link rel="stylesheet" href="/third-parties/mcl-style.css">
+    <link rel="stylesheet" media="screen and (max-width: 1100px)" href="css/screensize.css">
+    <link rel="stylesheet" media="screen and (max-height: 550px)" href="css/screensize.css">
     <link rel="shortcut icon" href="https://bna-launcher.vercel.app/assets/images/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1352,8 +1354,8 @@ minecraftlauncher: {
 </body>
 </html>
   `,
-  width: 700,
-  height: 500
+  width: 1100,
+  height: 550
 },
 configurejava: {
   title: 'Configure Java',
