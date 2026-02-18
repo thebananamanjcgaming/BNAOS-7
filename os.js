@@ -1410,7 +1410,9 @@ youtube: {
         style="display: block; width: 100%; height: 100%; border: none;" 
         tabindex="0">
     </iframe>
-  `
+  `,
+  width: 1305,
+  height: 605
 }
 };
 
