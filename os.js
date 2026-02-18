@@ -1206,6 +1206,36 @@ document.addEventListener('DOMContentLoaded', () => {
   `,
   width: 700,
   height: 500
+},
+minecraftlauncher: {
+  title: 'Minecraft Launcher',
+  content: () => `
+<iframe 
+    id="siteFrame" 
+    src="https://bna-launcher.vercel.app/" 
+    allow="autoplay; fullscreen; pointer-lock; microphone; camera; cross-origin-isolated" 
+    sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
+    style="display: block; width: 100vw; height: 100vh; border: none; position: fixed; top: 0; left: 0;"
+    tabindex="0">
+</iframe>
+
+<!-- Provide focus to the game -->
+
+<script>
+    window.addEventListener('load', function () {
+        var siteFrameVariable = document.getElementById('siteFrame');
+        // Force focus on load
+        siteFrameVariable.contentWindow.focus();
+        
+        // Ensure focus remains inside if user clicks inside the frame
+        document.body.addEventListener('click', function(e) {
+            siteFrameVariable.contentWindow.focus();
+        }, false);
+    });
+</script>
+  `,
+  width: 700,
+  height: 500
 }
 };
 
