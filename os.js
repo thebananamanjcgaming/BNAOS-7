@@ -612,7 +612,7 @@ tutorial: {
 </div>
       </ol>
       <p>Enjoy your retro desktop experience!</p>
-      <footer>Follow <a href="https://www.youtube.com/@TheBananamanJCGaming">@TheBananamanJCGaming</a> on YouTube for more projects like this!</footer>
+      <footer>Follow <a href="javascript:void(0);" onClick="openApp('youtube');">@TheBananamanJCGaming</a> on YouTube for more projects like this!</footer>
     </div>
   `,
   width: 400,
@@ -1395,6 +1395,14 @@ minecraft: {
   `,
   width: 600,
   height: 400
+},
+youtube: {
+  title: "YouTube",
+  content: () => `
+	<!-- Elfsight YouTube Gallery | Untitled YouTube Gallery -->
+	<script src="https://elfsightcdn.com/platform.js" async></script>
+	<div class="elfsight-app-a89020a8-b7b6-4206-99be-c901e525fc7d" data-elfsight-app-lazy></div>
+  `
 }
 };
 
