@@ -1217,7 +1217,7 @@ minecraftlauncher: {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BNALauncher</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/third-parties/mcl-style.css">
     <link rel="stylesheet" media="screen and (max-width: 1100px)" href="css/screensize.css">
     <link rel="stylesheet" media="screen and (max-height: 550px)" href="css/screensize.css">
     <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
