@@ -1217,7 +1217,7 @@ minecraftlauncher: {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BNALauncher</title>
-    <link rel="stylesheet" href="https://bna-launcher.vercel.app/css/style.css">
+    <link rel="stylesheet" href="/third-parties/mcl-style.css">
     <link rel="stylesheet" media="screen and (max-width: 1100px)" href="https://bna-launcher.vercel.app/css/screensize.css">
     <link rel="stylesheet" media="screen and (max-height: 550px)" href="https://bna-launcher.vercel.app/css/screensize.css">
     <link rel="shortcut icon" href="https://bna-launcher.vercel.app/assets/images/logo.png" type="image/x-icon">
@@ -1346,22 +1346,11 @@ minecraftlauncher: {
                     </div>
                 </div>
             <div id="dropdn" class="dropdownMenu" style="visibility: hidden;"></div>
-            <a id="playbutton" href="javascript:void(0);" onClick="openPopup('https://bna-launcher.vercel.app/mc/1.12.2')"><div id="mainbutton" class="playButton"></div></a>
+            <a id="playbutton" href="javascript:void(0);" onClick="openApp('minecraft')"><div id="mainbutton" class="playButton"></div></a>
             <div class="username centeredIcon bolded"><p id="username">Generic User</p></div>
         </div>
     </div>
     <script src="/third-parties/mcl.js"></script>
-    <script>
-        function openPopup(url) {
-			var mainGameLink = url;
-		
-            var width = 600;
-            var height = 400;
-
-            openApp('minecraft');
-            }
-        }
-    </script>
 </body>
 </html>
   `,
@@ -1385,10 +1374,10 @@ minecraft: {
   content: () => `
 <iframe 
     id="siteFrame" 
-    src="https://www.autistici.org/eaglercraft/play/modpack/explore/javascript/" 
-    allow="autoplay; fullscreen; pointer-lock; microphone; camera; cross-origin-isolated" 
+    src="https://bna-launcher.vercel.app/mc/1.12.2/" 
+    allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
     sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
-    style="display: block; width: 100vw; height: 100vh; border: none; position: fixed; top: 0; left: 0;"
+    style="display: block; width: 100%; height: 100%; border: none;"
     tabindex="0">
 </iframe>
 
@@ -1396,10 +1385,9 @@ minecraft: {
 
 <script>
     window.addEventListener('load', function () {
-        var mainFrame = document.getElementById('gameFrame');
+        var mainFrame = document.getElementById('siteFrame');
         // Force focus on load
         mainFrame.contentWindow.focus();
-		mainFrame.src = mainGameLink;
         
         // Ensure focus remains inside if user clicks inside the frame
         document.body.addEventListener('click', function(e) {
@@ -1408,8 +1396,8 @@ minecraft: {
     });
 </script>
   `,
-  width: 700,
-  height: 500
+  width: 600,
+  height: 400
 }
 };
 
