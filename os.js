@@ -1215,7 +1215,7 @@ minecraftlauncher: {
     src="https://bna-launcher.vercel.app/" 
     allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
     sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
-    style="display: block; width: 700px; height: 500px; border: none;"
+    style="display: block; width: 100%; height: 100%; border: none;"
     tabindex="0">
 </iframe>
 
