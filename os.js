@@ -50,7 +50,7 @@ const Apps = {
         <p>(emulated) Microsoft Windows 7 SP2</p>
         <p>(simulated) BNAOS Version Release 5.2.72 Iteration 1 Snapshot MC-2026-1A (Aero Glass)</p>
 		<h3>-- SNAPSHOT DETAILS --</h3>
-		<p>Currently implementing Java Runtime Environment 8.1 features for Minecraft: Java Edition support</p>
+		<p>Currently implementing Java Runtime Environment 8.1 features for Minecraft: Java Edition support in a future update :D</p>
       </div>
     `,
     width: 300,
