@@ -1406,6 +1406,11 @@ minecraft: {
 youtube: {
   title: "YouTube",
   content: () => `
+	<style>
+	    body {
+			background-color: #111111;
+		}
+	</style>
 	<!-- Elfsight YouTube Gallery | Untitled YouTube Gallery -->
 	<script src="https://elfsightcdn.com/platform.js" async></script>
 	<div class="elfsight-app-a89020a8-b7b6-4206-99be-c901e525fc7d" data-elfsight-app-lazy></div>
@@ -1424,6 +1429,11 @@ youtube: {
 facebook: {
   title: "Facebook",
   content: () => `
+	<style>
+	    body {
+			background-color: #111111;
+		}
+	</style>
 	<!-- Elfsight Facebook Feed | Untitled Facebook Feed -->
 	<script src="https://elfsightcdn.com/platform.js" async></script>
 	<div class="elfsight-app-a4c8039b-bbc4-4bc4-87d2-04978d13681e" data-elfsight-app-lazy></div>
@@ -1442,6 +1452,11 @@ facebook: {
 twitter: {
   title: "X (formerly Twitter)",
   content: () => `
+	<style>
+	    body {
+			background-color: #111111;
+		}
+	</style>
 	<!-- Elfsight Social Feed | Untitled Social Feed -->
 	<script src="https://elfsightcdn.com/platform.js" async></script>
 	<div class="elfsight-app-b3f18ea6-80e9-47ce-8408-340ff88a0f03" data-elfsight-app-lazy></div>
@@ -1460,6 +1475,11 @@ twitter: {
 linkedin: {
   title: "LinkedIn",
   content: () => `
+	<style>
+	    body {
+			background-color: #111111;
+		}
+	</style>
 	<!-- Elfsight LinkedIn Feed | Untitled LinkedIn Feed -->
 	<script src="https://elfsightcdn.com/platform.js" async></script>
 	<div class="elfsight-app-e36272c0-041e-4ae0-a231-1fa6590ed0f5" data-elfsight-app-lazy></div>
