@@ -1469,8 +1469,8 @@ twitter: {
         tabindex="0">
     </iframe>
   `,
-  width: 1305,
-  height: 605
+  width: 1020,
+  height: 720
 },
 linkedin: {
   title: "LinkedIn",
@@ -1492,8 +1492,8 @@ linkedin: {
         tabindex="0">
     </iframe>
   `,
-  width: 1305,
-  height: 605
+  width: 1020,
+  height: 720
 }
 };
 
