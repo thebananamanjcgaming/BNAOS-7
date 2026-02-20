@@ -1348,18 +1348,18 @@ configurejava: {
   <div class="tab" onclick="selectTab(event, 'advanced')" style="background-color: lightgray;">Advanced</div>
 </div>
 <div class="tab-content" id="tab-content">
-  <div id="general" class="content" style="display: block; text-align: right;">
+  <div id="general" class="content" style="display: block;">
     <p>About</p>
 	<p><br><br>View version information about Java Control Panel.</p>
-	<button class="button" id="about-button">About...</button>
+	<button class="button" id="about-button" style="text-align: right;">About...</button>
 	<p>Network Settings</p>
 	<p><br><br>Network settings are used when making Internet connections. By default, Java will use the network<br>settings in your web browser. Only advanced users should modify these settings.</p>
-	<button class="button" id="network-settings-button">Network Settings...</button>
+	<button class="button" id="network-settings-button" style="text-align: right;">Network Settings...</button>
 	<p>Temporary Internet Files</p>
 	<p><br><br>Files you use in Java applications are stored in a special folder for quick execution later. Only<br>advanced users should delete files or modify these settings.</p>
-	<div class="button-row" style="display: flex; flex-direction: row;">
-		<button class="button" id="settings-button">Settings...</button>
-		<button class="button" id="view-button">View...</button>
+	<div class="button-row" style="display: flex; flex-direction: row; style="text-align: right;"">
+		<button class="button" id="settings-button" style="text-align: right;">Settings...</button>
+		<button class="button" id="view-button" style="text-align: right;">View...</button>
 	</div>
     <p>Java in the browser is enabled.</p>
 	<p><a href="javascript:void(0);">See the Security tab</a></p>
