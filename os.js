@@ -1341,19 +1341,59 @@ configurejava: {
   title: 'Java Control Panel',
   content: () => `
 <div class="tabs" style="display: flex; flex-direction: row;">
-  <div class="tab" style="margin-right: 10px;">General</div>
-  <div class="tab" style="margin-right: 10px;">Update</div>
-  <div class="tab" style="margin-right: 10px;">Java</div>
-  <div class="tab" style="margin-right: 10px;">Security</div>
-  <div class="tab">Advanced</div>
+  <div class="tab" onclick="selectTab(event, 'general')" style="margin-right: 10px; background-color: white;">General</div>
+  <div class="tab" onclick="selectTab(event, 'update')" style="margin-right: 10px; background-color: lightgray;">Update</div>
+  <div class="tab" onclick="selectTab(event, 'java')" style="margin-right: 10px; background-color: lightgray;">Java</div>
+  <div class="tab" onclick="selectTab(event, 'security')" style="margin-right: 10px; background-color: lightgray;">Security</div>
+  <div class="tab" onclick="selectTab(event, 'advanced')" style="background-color: lightgray;">Advanced</div>
 </div>
-<div class="tab-content">
-  <p>Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
-    at com.oracle.openjdk.config(MyApplication.java:0)
-    at NaN(NULL)
-  </p>
-  <button class="button primary" id="cancel-saveas">Cancel</button>
+<div class="tab-content" id="tab-content">
+  <div id="general" class="content" style="display: block;">
+    <p>About</p>
+	<p><br><br>View version information about Java Control Panel.</p>
+	<button class="button" id="about-button">About...</button>
+	<p>Network Settings</p>
+	<p><br><br>Network settings are used when making Internet connections. By default, Java will use the network<br>settings in your web browser. Only advanced users should modify these settings.</p>
+	<button class="button" id="network-settings-button">Network Settings...</button>
+	<p>Temporary Internet Files</p>
+	<p><br><br>Files you use in Java applications are stored in a special folder for quick execution later. Only<br>advanced users should delete files or modify these settings.</p>
+	<div class="button-row" style="display: flex; flex-direction: row;">
+		<button class="button" id="settings-button">Settings...</button>
+		<button class="button" id="view-button">View...</button>
+	</div>
+    <p>Java in the browser is enabled.</p>
+	<p><a href="javascript:void(0);">See the Security tab</a></p>
+  </div>
+  <div id="update" class="content" style="display: none;">
+    <p>Update settings content goes here.</p>
+  </div>
+  <div id="java" class="content" style="display: none;">
+    <p>Java settings content goes here.</p>
+  </div>
+  <div id="security" class="content" style="display: none;">
+    <p>Security settings content goes here.</p>
+  </div>
+  <div id="advanced" class="content" style="display: none;">
+    <p>Advanced settings content goes here.</p>
+  </div>
 </div>
+<script>
+  function selectTab(event, tabName) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+    
+    tabs.forEach(tab => {
+      tab.style.backgroundColor = 'lightgray';
+    });
+    
+    contents.forEach(content => {
+      content.style.display = 'none';
+    });
+    
+    event.currentTarget.style.backgroundColor = 'white';
+    document.getElementById(tabName).style.display = 'block';
+  }
+</script>
   `,
   width: 700,
   height: 500
