@@ -48,9 +48,7 @@ const Apps = {
         <p>It supports up to 10-core usage for emulation and fully simulates the Windows UI.</p>
         <h3>Version</h3>
         <p>(emulated) Microsoft Windows 7 SP2</p>
-        <p>(simulated) BNAOS Version Release 5.2.72 Iteration 1 Snapshot MC-2026-1A (Aero Glass)</p>
-		<h3>-- SNAPSHOT DETAILS --</h3>
-		<p>Currently implementing Java Runtime Environment 8.1 features for Minecraft: Java Edition support in a future update :D</p>
+        <p>(simulated) BNAOS Version Release 5.2.72 Iteration 2 (Aero Glass)</p>
       </div>
     `,
     width: 300,
@@ -1340,13 +1338,22 @@ minecraftlauncher: {
   height: 605
 },
 configurejava: {
-  title: 'Configure Java',
+  title: 'Java Control Panel',
   content: () => `
-<p>Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+<div class="tabs">
+  <div class="tab">General</div>
+  <div class="tab">Update</div>
+  <div class="tab">Java</div>
+  <div class="tab">Security</div>
+  <div class="tab">Advanced</div>
+</div>
+<div class="tab-content">
+  <p>Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
     at com.oracle.openjdk.config(MyApplication.java:0)
-	at NaN(NULL)
-</p>
-<button class="button" id="cancel-saveas">Cancel</button>
+    at NaN(NULL)
+  </p>
+  <button class="button primary" id="cancel-saveas">Cancel</button>
+</div>
   `,
   width: 700,
   height: 500
