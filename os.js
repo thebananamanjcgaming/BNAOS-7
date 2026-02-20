@@ -1340,11 +1340,11 @@ minecraftlauncher: {
 configurejava: {
   title: 'Java Control Panel',
   content: () => `
-<div class="tabs">
-  <div class="tab">General</div>
-  <div class="tab">Update</div>
-  <div class="tab">Java</div>
-  <div class="tab">Security</div>
+<div class="tabs" style="display: flex; flex-direction: row;">
+  <div class="tab" style="margin-right: 10px;">General</div>
+  <div class="tab" style="margin-right: 10px;">Update</div>
+  <div class="tab" style="margin-right: 10px;">Java</div>
+  <div class="tab" style="margin-right: 10px;">Security</div>
   <div class="tab">Advanced</div>
 </div>
 <div class="tab-content">
