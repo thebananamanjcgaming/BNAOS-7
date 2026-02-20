@@ -1348,7 +1348,7 @@ configurejava: {
   <div class="tab" onclick="selectTab(event, 'advanced')" style="background-color: lightgray;">Advanced</div>
 </div>
 <div class="tab-content" id="tab-content">
-  <div id="general" class="content" style="display: block;">
+  <div id="general" class="content" style="display: block; text-align: right;">
     <p>About</p>
 	<p><br><br>View version information about Java Control Panel.</p>
 	<button class="button" id="about-button">About...</button>
