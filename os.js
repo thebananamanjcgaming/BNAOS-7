@@ -557,7 +557,7 @@ tutorial: {
         <ul class="list-inline d-inline-block align-middle mb-0 socialfollow-ul">
             <li class="list-inline-item mr-g socialfollow-li">
                 
-                <a class="d-inline-block action-trigger" href="https://www.facebook.com/Microsoft" target="_blank" aria-label="Follow Microsoft on Facebook, opens in a new tab" data-bi-ecn="Follow Microsoft on Facebook" data-bi-bhvr="126" data-bi-cn="Follow Microsoft on Facebook" data-bi-socchn="Follow Microsoft on Facebook" data-bi-ct="Social Button" data-bi-pa="body" data-bi-compnm="Social Follow - horizontal">
+                <a class="d-inline-block action-trigger" href="javascript:void(0);" onClick="openApp('facebook');" aria-label="Follow Microsoft on Facebook, opens in a new tab" data-bi-ecn="Follow Microsoft on Facebook" data-bi-bhvr="126" data-bi-cn="Follow Microsoft on Facebook" data-bi-socchn="Follow Microsoft on Facebook" data-bi-ct="Social Button" data-bi-pa="body" data-bi-compnm="Social Follow - horizontal">
                     
                             <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Facebook 2x-1?scl=1" data-src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Facebook 2x-1?scl=1" alt="Facebook" title="Follow Microsoft on Facebook" width="32" height="32">					
                     
@@ -567,7 +567,7 @@ tutorial: {
         
             <li class="list-inline-item mr-g socialfollow-li">
                 
-                <a class="d-inline-block action-trigger" href="https://www.twitter.com/Microsoft" target="_blank" aria-label="Follow Microsoft on X, opens in a new tab" data-bi-ecn="Follow Microsoft on X" data-bi-bhvr="126" data-bi-cn="Follow Microsoft on X" data-bi-socchn="Follow Microsoft on X" data-bi-ct="Social Button" data-bi-pa="body" data-bi-compnm="Social Follow - horizontal">
+                <a class="d-inline-block action-trigger" href="javascript:void(0);" onClick="openApp('twitter');" aria-label="Follow Microsoft on X, opens in a new tab" data-bi-ecn="Follow Microsoft on X" data-bi-bhvr="126" data-bi-cn="Follow Microsoft on X" data-bi-socchn="Follow Microsoft on X" data-bi-ct="Social Button" data-bi-pa="body" data-bi-compnm="Social Follow - horizontal">
                     
                             <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Twitter 2x-1?scl=1" data-src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Twitter 2x-1?scl=1" alt="X" title="Follow Microsoft on X" width="32" height="32">					
                     
@@ -577,7 +577,7 @@ tutorial: {
         
             <li class="list-inline-item mr-g socialfollow-li">
                 
-                <a class="d-inline-block action-trigger" href="https://www.linkedin.com/company/microsoft" target="_blank" aria-label="Follow Microsoft on LinkedIn, opens in a new tab" data-bi-ecn="Follow Microsoft on LinkedIn" data-bi-bhvr="126" data-bi-cn="Follow Microsoft on LinkedIn" data-bi-socchn="Follow Microsoft on LinkedIn" data-bi-ct="Social Button" data-bi-pa="body" data-bi-compnm="Social Follow - horizontal">
+                <a class="d-inline-block action-trigger" href="javascript:void(0);" onClick="openApp('linkedin');" aria-label="Follow Microsoft on LinkedIn, opens in a new tab" data-bi-ecn="Follow Microsoft on LinkedIn" data-bi-bhvr="126" data-bi-cn="Follow Microsoft on LinkedIn" data-bi-socchn="Follow Microsoft on LinkedIn" data-bi-ct="Social Button" data-bi-pa="body" data-bi-compnm="Social Follow - horizontal">
                     
                             <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Linkedin 2x-1?scl=1" data-src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Linkedin 2x-1?scl=1" alt="LinkedIn" title="Follow Microsoft on LinkedIn" width="32" height="32">					
                     
@@ -1412,6 +1412,60 @@ youtube: {
     <iframe 
         id="youtube" 
         src="https://a89020a8b7b6420699bec901e525fc7d.elf.site/" 
+        allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
+        sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
+        style="display: block; width: 100%; height: 100%; border: none;" 
+        tabindex="0">
+    </iframe>
+  `,
+  width: 1305,
+  height: 605
+},
+facebook: {
+  title: "Facebook",
+  content: () => `
+	<!-- Elfsight Facebook Feed | Untitled Facebook Feed -->
+	<script src="https://elfsightcdn.com/platform.js" async></script>
+	<div class="elfsight-app-a4c8039b-bbc4-4bc4-87d2-04978d13681e" data-elfsight-app-lazy></div>
+    <iframe 
+        id="facebook" 
+        src="https://a4c8039bbbc44bc487d204978d13681e.elf.site" 
+        allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
+        sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
+        style="display: block; width: 100%; height: 100%; border: none;" 
+        tabindex="0">
+    </iframe>
+  `,
+  width: 1305,
+  height: 605
+},
+twitter: {
+  title: "X (formerly Twitter)",
+  content: () => `
+	<!-- Elfsight Social Feed | Untitled Social Feed -->
+	<script src="https://elfsightcdn.com/platform.js" async></script>
+	<div class="elfsight-app-b3f18ea6-80e9-47ce-8408-340ff88a0f03" data-elfsight-app-lazy></div>
+    <iframe 
+        id="twitter" 
+        src="https://b3f18ea680e947ce8408340ff88a0f03.elf.site" 
+        allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
+        sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
+        style="display: block; width: 100%; height: 100%; border: none;" 
+        tabindex="0">
+    </iframe>
+  `,
+  width: 1305,
+  height: 605
+},
+linkedin: {
+  title: "LinkedIn",
+  content: () => `
+	<!-- Elfsight LinkedIn Feed | Untitled LinkedIn Feed -->
+	<script src="https://elfsightcdn.com/platform.js" async></script>
+	<div class="elfsight-app-e36272c0-041e-4ae0-a231-1fa6590ed0f5" data-elfsight-app-lazy></div>
+    <iframe 
+        id="linkedin" 
+        src="https://e36272c0041e4ae0a2311fa6590ed0f5.elf.site" 
         allow="autoplay; pointer-lock; microphone; camera; cross-origin-isolated" 
         sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-modals allow-popups" 
         style="display: block; width: 100%; height: 100%; border: none;" 
