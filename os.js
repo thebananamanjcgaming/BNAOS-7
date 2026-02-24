@@ -1552,6 +1552,7 @@ const dragBox = document.getElementById('drag-box');
 // Drag box logic
 // =====================
 const browserShortcut = document.getElementById('browser-shortcut');
+const robloxShortcut = document.getElementById('roblox-shortcut');
 
 let dragStartX = 0, dragStartY = 0;
 
@@ -1561,6 +1562,11 @@ let dragStartX = 0, dragStartY = 0;
 browserShortcut.addEventListener('click', e => {
   e.stopPropagation(); // prevent desktop click from firing
   browserShortcut.classList.add('selected');
+});
+
+robloxShortcut.addEventListener('click', e => {
+  e.stopPropagation(); // prevent desktop click from firing
+  roblox.classList.add('selected');
 });
 
 desktop.addEventListener('mousedown', e => {
@@ -1579,6 +1585,7 @@ desktop.addEventListener('mousedown', e => {
 
   // clear previous selection
   browserShortcut.classList.remove('selected');
+  robloxShortcut.classList.remove('selected');	
 
   function onMouseMove(e) {
     const x = Math.min(e.pageX, dragStartX);
@@ -1596,6 +1603,7 @@ desktop.addEventListener('mousedown', e => {
     // Check overlap with browser shortcut
     const boxRect = dragBox.getBoundingClientRect();
     const iconRect = browserShortcut.getBoundingClientRect();
+	const iconRectt = robloxShortcut.getBoundingClientRect();
 
     const overlaps = !(
       boxRect.right < iconRect.left ||
@@ -1603,11 +1611,25 @@ desktop.addEventListener('mousedown', e => {
       boxRect.bottom < iconRect.top ||
       boxRect.top > iconRect.bottom
     );
+	  
+    const overlapss = !(
+      boxRect.right < iconRectt.left ||
+      boxRect.left > iconRectt.right ||
+      boxRect.bottom < iconRectt.top ||
+      boxRect.top > iconRectt.bottom
+    );
 
     if (overlaps) {
       browserShortcut.classList.add('selected');
     } else {
       browserShortcut.classList.remove('selected');
+    }
+  }
+
+    if (overlapss) {
+      robloxShortcut.classList.add('selected');
+    } else {
+      robloxShortcut.classList.remove('selected');
     }
   }
 
