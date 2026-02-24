@@ -552,6 +552,14 @@ textarea {
   filter: brightness(120%); /* Brightness on hover */
 }
 
+#roblox-shortcut-icon {
+  filter: brightness(100%); /* Initial brightness */
+}
+
+#roblox-shortcut-icon:hover {
+  filter: brightness(120%); /* Brightness on hover */
+}
+
 #license-header-text {
     position: absolute;
     top: 10px;
