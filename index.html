@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNAOS 7 | Login</title>
+    <title>BNAOS 7 | Signup</title>
     <link rel="stylesheet" href="https://unpkg.com/7.css/dist/7.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -45,15 +45,54 @@
             background-color: #0056A0;
         }
     </style>
+    <script>
+        function toggleForm() {
+            const form = document.querySelector('form');
+            const title = document.querySelector('h1');
+            if (form.dataset.mode === 'signup') {
+                title.textContent = 'Log In';
+                form.dataset.mode = 'login';
+                document.querySelector('button').textContent = 'Log In';
+                document.title = 'BNAOS 7 | Login';
+            } else {
+                title.textContent = 'Sign Up';
+                form.dataset.mode = 'signup';
+                document.querySelector('button').textContent = 'Sign Up';
+                document.title = 'BNAOS 7 | Signup';
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const username = form.querySelector('input[type="text"]').value;
+            const password = form.querySelector('input[type="password"]').value;
+
+            if (form.dataset.mode === 'signup') {
+                localStorage.setItem(username, password);
+                alert('User signed up successfully!');
+                toggleForm();
+            } else {
+                const storedPassword = localStorage.getItem(username);
+                if (storedPassword && storedPassword === password) {
+                    alert('Login successful!');
+                    window.location.replace('main.html');
+                } else {
+                    alert('Invalid username or password.');
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="login-container">
-        <h1>User</h1>
-        <form>
+        <h1>Signup</h1>
+        <form data-mode="signup" onsubmit="handleSubmit(event);">
             <input type="text" placeholder="Username" required>
             <input type="password" placeholder="Password" required>
-            <button class="button primary" type="submit" onClick="window.location.replace('main.html');">Log In</button>
+            <button class="button primary" type="submit">Sign Up</button>
         </form>
+        <button onclick="toggleForm()">Switch to Login</button>
     </div>
 </body>
 </html>
