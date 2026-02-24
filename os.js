@@ -1566,7 +1566,7 @@ browserShortcut.addEventListener('click', e => {
 
 robloxShortcut.addEventListener('click', e => {
   e.stopPropagation(); // prevent desktop click from firing
-  roblox.classList.add('selected');
+  robloxShortcut.classList.add('selected');
 });
 
 desktop.addEventListener('mousedown', e => {
@@ -1603,7 +1603,7 @@ desktop.addEventListener('mousedown', e => {
     // Check overlap with browser shortcut
     const boxRect = dragBox.getBoundingClientRect();
     const iconRect = browserShortcut.getBoundingClientRect();
-	const iconRectt = robloxShortcut.getBoundingClientRect();
+    const iconRectt = robloxShortcut.getBoundingClientRect();
 
     const overlaps = !(
       boxRect.right < iconRect.left ||
@@ -1624,7 +1624,6 @@ desktop.addEventListener('mousedown', e => {
     } else {
       browserShortcut.classList.remove('selected');
     }
-  }
 
     if (overlapss) {
       robloxShortcut.classList.add('selected');
@@ -1642,7 +1641,6 @@ desktop.addEventListener('mousedown', e => {
   document.addEventListener('mousemove', onMouseMove);
   document.addEventListener('mouseup', onMouseUp);
 });
-
 
 let zTop = 10;
 const windows = new Map();
