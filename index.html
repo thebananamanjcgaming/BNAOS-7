@@ -1,3 +1,5 @@
+# Profile Image with Custom Square Border
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +19,7 @@
         }
         .login-container {
             background: transparent;
-            border: 10px solid transparent;
-            border-image: url('system32/border.png') 30 stretch;
+            border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
@@ -27,8 +28,11 @@
             margin: 0 auto 20px;
             width: 100px;
             height: 100px;
-            border: 2px solid #ccc;
-            border-radius: 50%;
+            border: 5px solid transparent;
+            background-image: url('system32/border.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 0;
             background-color: #fff;
         }
         h1 {
