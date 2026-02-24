@@ -16,10 +16,19 @@
             margin: 0;
         }
         .login-container {
-            background: white;
+            background: transparent;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .profile-icon {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            background-color: #fff;
         }
         h1 {
             text-align: center;
@@ -50,12 +59,12 @@
             const form = document.querySelector('form');
             const title = document.querySelector('h1');
             if (form.dataset.mode === 'signup') {
-                title.textContent = 'Log In';
+                title.textContent = 'Login';
                 form.dataset.mode = 'login';
                 document.querySelector('button').textContent = 'Log In';
                 document.title = 'BNAOS 7 | Login';
             } else {
-                title.textContent = 'Sign Up';
+                title.textContent = 'Signup';
                 form.dataset.mode = 'signup';
                 document.querySelector('button').textContent = 'Sign Up';
                 document.title = 'BNAOS 7 | Signup';
@@ -86,13 +95,14 @@
 </head>
 <body>
     <div class="login-container">
+        <img src="" alt="Profile Icon" class="profile-icon">
         <h1>Signup</h1>
         <form data-mode="signup" onsubmit="handleSubmit(event);">
             <input type="text" placeholder="Username" required>
             <input type="password" placeholder="Password" required>
-            <button class="button primary" type="submit">Sign Up</button>
+            <button class="button primary" type="submit">Signup</button>
         </form>
-        <button onclick="toggleForm()">Switch to Login</button>
+        <button onclick="toggleForm(); this.remove();">Switch to Login</button>
     </div>
 </body>
 </html>
