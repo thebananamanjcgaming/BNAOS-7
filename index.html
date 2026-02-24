@@ -14,6 +14,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
         }
         .login-container {
             background: transparent;
@@ -56,6 +57,17 @@
         }
         button:hover {
             background-color: #0056A0;
+        }
+        footer {
+            display: flex; /* Creates horizontal row */
+            justify-content: center; /* Centers content */
+            gap: 20px; /* Optional: adds space between items */
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        footer p {
+            margin: 0; /* Removes dividers/margins */
+            text-decoration: none;
         }
     </style>
     <script>
@@ -108,5 +120,9 @@
         </form>
         <button onclick="toggleForm(); this.remove();">Switch to Login</button>
     </div>
+    <footer>
+        <p>BNAOS 7 Professional</p>
+        <img src="https://upload.wikimedia.org/wikipedia/pt/e/e0/Windows_logo.png" alt="Windows 7 Logo" style="width: 50px; height: auto;">
+    </footer>
 </body>
 </html>
