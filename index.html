@@ -15,6 +15,7 @@
             height: 100vh;
             margin: 0;
             flex-direction: column;
+            position: relative;
         }
         .login-container {
             background: transparent;
@@ -59,14 +60,19 @@
             background-color: #0056A0;
         }
         footer {
-            display: flex; /* Creates horizontal row */
-            justify-content: center; /* Centers content */
-            gap: 20px; /* Optional: adds space between items */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
             padding: 10px;
-            background-color: #f0f0f0;
+            background-color: transparent;
+            backdrop-filter: blur(8px);
         }
         footer p {
-            margin: 0; /* Removes dividers/margins */
+            margin: 0;
             text-decoration: none;
         }
     </style>
